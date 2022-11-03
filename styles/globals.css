@@ -1,26 +1,48 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Satisfy&display=swap");
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+@layer base {
+  html,
   body {
-    color: white;
-    background: black;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Manrope", sans-serif;
+  }
+}
+
+@layer components {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
+  }
+  .primary__nav {
+    background: #fafafa;
+    position: fixed;
+    inset: 10% 0 0 0;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+
+    gap: 2rem;
+    padding: 4rem;
+    transform: translateY(-120%);
+    transition: transform 500ms ease-in-out;
+  }
+
+  .primary__nav[data-visible="true"] {
+    transform: translateY(0);
   }
 }
