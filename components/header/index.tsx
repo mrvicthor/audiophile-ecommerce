@@ -20,7 +20,9 @@ const Header = () => {
             </button>
           </div>
           <div className="md:mr-auto md:px-10 lg:px-0">
-            <a className="h-[25px] font-bold text-lg md:text-xl">audiophile</a>
+            <a className="h-[25px] font-bold text-lg md:text-xl cursor-pointer hover:text-[#d87d4a]">
+              audiophile
+            </a>
           </div>
           <ul
             className="primary__nav lg:static lg:inset-0 lg:translate-y-0 lg:bg-transparent lg:px-0 lg:py-0 lg:flex-row lg:max-w-[26.81rem] lg:mr-auto"

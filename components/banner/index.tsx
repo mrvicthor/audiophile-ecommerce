@@ -2,23 +2,23 @@ import { Button } from "../index";
 
 const Banner = () => {
   return (
-    <section className="h-[31.875rem] bg-[#191919]">
-      <div className="banner bg-[url('/images/image-header.jpg')] bg-no-repeat bg-cover  h-screen relative">
-        <div className=" w-[328px] px-6 flex flex-col justify-center items-center absolute top-[35%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+    <section className="h-[85vh]">
+      <div className="banner bg-[url('/images/image-header.jpg')] bg-no-repeat bg-cover h-full md:bg-[url('/images/image-header-tablet.jpg')] lg:bg-[url('/images/image-hero.jpg')] ">
+        <div className="max-w-[328px] px-6 flex flex-col items-center mx-auto pt-28 md:pt-36 md:max-w-[379px] lg:items-start lg:max-w-[69.364rem] lg:mx-auto lg:px-0">
           <h1 className="tracking-[10px] text-lg uppercase text-white opacity-50 leading-[19px] font-[400]">
             New product
           </h1>
-          <p className="text-white tracking-wider uppercase mt-4 text-4xl h-[80px]">
+          <p className="text-white tracking-wider uppercase mt-4 text-4xl h-[80px] md:h-[116px] md:font-bold md:text-[56px] md:leading-[58px] md:tracking-[2px]">
             XX99 Mark II <br /> Headphones
           </p>
-          <p className="mt-[24px] text-center font-[500] text-white opacity-[0.75] text-[15px] leading-[25px]">
+          <p className="mt-[24px] text-center font-[500] text-white opacity-[0.75] text-[15px] leading-[25px] md:w-[349px] lg:text-left">
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
           <Button
             title="See Product"
             handleClick={() => console.log("button clicked")}
-            style="h-[48px] text-white bg-[#d87d4a] w-[160px] mt-[28px]"
+            style="h-[48px] text-white bg-[#d87d4a] w-[160px] mt-[28px] uppercase hover:bg-[#fbaf85]"
           />
         </div>
       </div>
