@@ -51,7 +51,7 @@
 
   @media (min-width: 768px) {
     .primary__nav {
-      inset: 18% 0 0 0;
+      inset: 13% 0 0 0;
     }
     .banner {
       background-position: center -100px;
