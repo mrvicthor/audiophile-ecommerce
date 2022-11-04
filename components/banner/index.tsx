@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <section className="h-[510px] md:h-[639px]">
       <div className="banner bg-[url('/images/image-header.jpg')] bg-no-repeat bg-cover h-full md:bg-[url('/images/image-header-tablet.jpg')] lg:bg-[url('/images/image-hero.jpg')] ">
-        <div className="max-w-[328px] px-6 flex flex-col items-center mx-auto pt-[9rem] md:pt-36 md:max-w-[379px] lg:items-start lg:max-w-[69.364rem] lg:mx-auto lg:px-0">
+        <div className="max-w-[328px] px-6 flex flex-col items-center mx-auto pt-[5rem] md:pt-36 md:max-w-[379px] lg:items-start lg:max-w-[69.364rem] lg:mx-auto lg:px-0">
           <h1 className="tracking-[10px] text-lg uppercase text-white opacity-50 leading-[19px] font-[400]">
             New product
           </h1>

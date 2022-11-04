@@ -46,7 +46,7 @@
     transform: translateY(0);
   }
   .banner {
-    background-position: center -100px;
+    background-position: center -140px;
   }
 
   @media (min-width: 768px) and (min-width: 428px) {
