@@ -2,7 +2,7 @@ import { Button } from "../index";
 
 const Banner = () => {
   return (
-    <section className="h-[510px] md:h-[639px]">
+    <section className="h-[510px] md:h-[639px] lg:h-[632px]">
       <div className="px-6 banner bg-[url('/images/image-header.jpg')] bg-no-repeat bg-cover h-full md:bg-[url('/images/image-header-tablet.jpg')] lg:bg-[url('/images/image-hero.jpg')] ">
         <div className="max-w-[328px]  flex flex-col items-center mx-auto pt-[5rem] md:pt-36 md:max-w-[379px] lg:items-start lg:max-w-[69.364rem] lg:mx-auto">
           <h1 className="tracking-[10px] text-lg uppercase text-white opacity-50 leading-[19px] font-[400]">
