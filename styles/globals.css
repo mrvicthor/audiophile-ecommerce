@@ -39,14 +39,14 @@
     gap: 2rem;
     padding: 4rem;
     transform: translateY(-120%);
-    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in;
   }
 
   .primary__nav[data-visible="true"] {
     transform: translateY(0);
   }
   .banner {
-    background-position: center 92%;
+    background-position: center 88%;
   }
 
   @media (min-width: 768px) and (min-width: 428px) {
