@@ -29,7 +29,7 @@ const Header = () => {
             id="primary__nav"
             data-visible={showNav ? "true" : "false"}
           >
-            <li className="text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer">
+            <li className="active text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer">
               home
             </li>
             <li className="text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer">
