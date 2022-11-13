@@ -3,4 +3,5 @@ import Banner from "./banner";
 import Button from "./button";
 import Product from "./product";
 import Products from "./products";
-export { Header, Banner, Button, Product, Products };
+import Speaker from "./speaker";
+export { Header, Banner, Button, Product, Products, Speaker };

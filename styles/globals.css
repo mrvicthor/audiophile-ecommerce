@@ -52,6 +52,26 @@
     background-position: center 88%;
   }
 
+  .image_shadow {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    z-index: 10;
+    filter: blur(10px);
+  }
+  .product:hover a {
+    color: #d87d4a;
+  }
+
+  .outer__circle {
+    border-radius: 50%;
+  }
+
+  .inner__circle_child {
+    border-radius: 50%;
+  }
   @media (min-width: 768px) and (min-width: 428px) {
     .banner {
       background-position: center 82%;

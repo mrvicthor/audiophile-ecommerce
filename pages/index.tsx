@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Header, Banner, Products } from "../components";
+import { Header, Banner, Products, Speaker } from "../components";
 
 export default function Home() {
   return (
@@ -14,6 +14,7 @@ export default function Home() {
       <main className="">
         <Banner />
         <Products />
+        <Speaker />
       </main>
     </div>
   );
