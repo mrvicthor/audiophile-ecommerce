@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "../index";
 const Speaker = () => {
   return (
     <section className="mt-[121px]  px-6">
@@ -15,8 +16,21 @@ const Speaker = () => {
             alt="speaker image"
           />
         </div>
+        <div className="speaker__content absolute top-[294px] left-[50%] -translate-x-[50%] w-[17.5rem] flex flex-col items-center z-10 gap-4">
+          <h3 className="text-[#ffffff] uppercase font-bold text-[2.25rem] text-center leading-[40px] tracking-[1.28571px]">
+            ZX9 <br /> speaker
+          </h3>
+          <p className="text-center text-[#ffffff] text-[0.9375rem] opacity-75 leading-[25px]">
+            Upgrade to premium speakers that are phenomenally built to deliver
+            truly remarkable sound.
+          </p>
+          <Button
+            title="see product"
+            handleClick={() => console.log("button clicked")}
+            style="h-[48px] text-white bg-[#000000] w-[160px] mt-[0.5rem] uppercase hover:bg-[#fbaf85]"
+          />
+        </div>
       </div>
-      <div></div>
     </section>
   );
 };
