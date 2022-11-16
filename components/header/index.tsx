@@ -32,7 +32,7 @@ const Header = () => {
               {showNav ? <FaTimes /> : <FaBars />}
             </button>
           </div>
-
+          {showNav && <div className="my_overlay" />}
           <Sidebar showNav={showNav} />
 
           <div className="md:mr-auto md:px-10 lg:px-0">

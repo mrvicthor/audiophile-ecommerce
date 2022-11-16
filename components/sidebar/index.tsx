@@ -40,7 +40,7 @@ const Sidebar = ({ showNav }: SidebarProps) => {
           animate={{ width: 350 }}
           exit={{
             width: 0,
-            transition: { delay: 0.7, duration: 0.3 },
+            transition: { delay: 0.7, duration: 0.4 },
           }}
           className="lg:hidden sidebar"
         >

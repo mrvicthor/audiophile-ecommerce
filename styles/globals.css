@@ -26,22 +26,15 @@
     white-space: nowrap; /* added line */
     border: 0;
   }
-  /* .primary__nav {
-    background: #fafafa;
-    position: fixed;
-    inset: 90px 0 0 0;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    flex-direction: column;
+  .my_overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 1.5rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
     z-index: 9999;
-
-    gap: 2rem;
-    padding: 4rem;
-    transform: translateY(-138%);
-    transition: transform 700ms ease-in-out;
-  } */
-
+  }
   .overlay {
     position: absolute;
     top: 90px;
@@ -49,7 +42,7 @@
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+
     z-index: 10000;
   }
 
