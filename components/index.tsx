@@ -5,4 +5,16 @@ import Product from "./product";
 import Products from "./products";
 import Speaker from "./speaker";
 import Sidebar from "./sidebar";
-export { Header, Banner, Button, Product, Products, Speaker, Sidebar };
+import SpeakerProduct from "./speakerproduct";
+import Earphone from "./earphone";
+export {
+  Header,
+  Banner,
+  Button,
+  Product,
+  Products,
+  Speaker,
+  Sidebar,
+  SpeakerProduct,
+  Earphone,
+};
