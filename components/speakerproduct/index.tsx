@@ -11,7 +11,7 @@ const SpeakerProduct = () => {
           <Button
             title="see product"
             handleClick={() => console.log("button clicked")}
-            style="h-[48px] text-[black] border border-[#000000] font-bold w-[160px] mt-[0.5rem] uppercase hover:bg-[black] hover:text-[white]"
+            style="h-[48px] text-[black] border border-[#000000] font-bold w-[160px] uppercase hover:bg-[black] hover:text-[white]"
           />
         </div>
       </div>

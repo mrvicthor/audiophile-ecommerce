@@ -53,6 +53,7 @@
     bottom: 0;
     left: 0;
     display: flex;
+    width: 350px;
     z-index: 10000;
     flex-direction: column;
     gap: 1.5rem;

@@ -20,7 +20,7 @@ const Speaker = () => {
           <Button
             title="see product"
             handleClick={() => console.log("button clicked")}
-            style="h-[48px] text-white bg-[#000000] w-[160px] mt-[0.5rem] uppercase hover:bg-[#84848C] md:mt-[1.5rem]"
+            style="h-[48px] text-white bg-[#000000] w-[160px] mt-[0.5rem] font-bold uppercase hover:bg-[#4c4c4c] md:mt-[1.5rem]"
           />
         </div>
       </div>

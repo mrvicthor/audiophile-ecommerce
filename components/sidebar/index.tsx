@@ -9,7 +9,7 @@ const Sidebar = ({ showNav }: SidebarProps) => {
   const [selected, setSelected] = useState<string>("home");
   const variants = {
     open: {
-      transition: { staggerChildren: 0.07, staggerDirection: 1 },
+      transition: { staggerChildren: 0.07, delayChildren: 0.3 },
     },
     closed: {
       transition: { staggerChildren: 0.05, staggerDirection: -1 },
