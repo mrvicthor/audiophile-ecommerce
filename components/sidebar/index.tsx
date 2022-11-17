@@ -12,7 +12,10 @@ const Sidebar = ({ showNav }: SidebarProps) => {
       transition: { staggerChildren: 0.07, delayChildren: 0.3 },
     },
     closed: {
-      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+      transition: {
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+      },
     },
   };
 

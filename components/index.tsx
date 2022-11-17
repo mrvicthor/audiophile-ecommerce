@@ -7,7 +7,9 @@ import Speaker from "./speaker";
 import Sidebar from "./sidebar";
 import SpeakerProduct from "./speakerproduct";
 import Earphone from "./earphone";
+import Gallery from "./gallery";
 export {
+  Gallery,
   Header,
   Banner,
   Button,
