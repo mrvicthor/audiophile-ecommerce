@@ -2,10 +2,21 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Sidebar } from "../index";
 import { BsCart3 } from "react-icons/bs";
 import { useCycle } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const [showNav, setShowNav] = useCycle(false, true);
+  const [showHeader, setShowHeader] = useState<boolean>(true);
+  const [scrollValue, setScrollValue] = useState<number>(0);
+
+  const showNavbar = () => {
+    if (window.scrollY > scrollValue) {
+      setShowHeader(false);
+    } else {
+      setShowHeader(true);
+    }
+    setScrollValue(window.scrollY);
+  };
 
   useEffect(() => {
     if (showNav) {
@@ -16,8 +27,17 @@ const Header = () => {
     };
   }, [showNav]);
 
+  useEffect(() => {
+    window.addEventListener("scroll", showNavbar);
+    return () => window.removeEventListener("scroll", showNavbar);
+  }, [scrollValue]);
+
   return (
-    <header className="px-6 h-[91px] md:h-[90px]  bg-[#191919] text-white lg:h-[97px]">
+    <header
+      className={`${
+        showHeader ? "top-0" : ""
+      } px-6 h-[91px] md:h-[90px]  bg-[#191919] text-white lg:h-[97px] sticky w-full z-50`}
+    >
       <div className="py-8 lg:max-w-[69.364rem] lg:mx-auto  lg:border-b-[1px] lg:border-[#979797]">
         <nav className="flex items-center justify-between">
           <div className="lg:hidden">

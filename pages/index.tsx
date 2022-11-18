@@ -7,6 +7,7 @@ import {
   SpeakerProduct,
   Earphone,
   Gallery,
+  Footer,
 } from "../components";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
         <SpeakerProduct />
         <Earphone />
         <Gallery />
+        <Footer />
       </main>
     </div>
   );

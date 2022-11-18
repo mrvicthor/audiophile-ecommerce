@@ -8,6 +8,7 @@ import Sidebar from "./sidebar";
 import SpeakerProduct from "./speakerproduct";
 import Earphone from "./earphone";
 import Gallery from "./gallery";
+import Footer from "./footer";
 export {
   Gallery,
   Header,
@@ -19,4 +20,5 @@ export {
   Sidebar,
   SpeakerProduct,
   Earphone,
+  Footer,
 };
