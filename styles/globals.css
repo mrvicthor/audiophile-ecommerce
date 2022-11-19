@@ -102,5 +102,8 @@
     .banner {
       background-position: center 144%;
     }
+    .footer_text {
+      width: 33.75rem;
+    }
   }
 }

@@ -1,43 +1,49 @@
 import { FaFacebookSquare, FaTwitter, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-[#101010]">
-      <div className="px-6 h-[40.875rem] flex flex-col text-white items-center">
+      <div className="px-6 h-[40.875rem] flex flex-col text-white items-center md:items-start md:h-[25rem] lg:max-w-[69.364rem] lg:mx-auto lg:h-[22.8125rem] lg:relative">
         <div className="h-[3px] bg-[#d87d4a] w-[6.25rem]" />
-        <div className="mt-[3.25rem]">
-          <div className="flex flex-col items-center gap-12">
+        <div className="mt-[3.25rem] md:mt-[3.75rem] w-full">
+          <div className="flex flex-col items-center gap-12 md:items-start md:gap-8 lg:flex-row lg:w-full lg:justify-between">
             <div className=" h-[1.5625rem] font-bold text-[1.5625rem]">
-              audiophile
+              <Image
+                src="/images/audiophile2.svg"
+                width={150}
+                height={150}
+                alt="logo"
+              />
             </div>
-            <div className="flex flex-col items-center h-[9.25rem] gap-4">
+            <div className="flex flex-col items-center h-[9.25rem] gap-4 md:flex-row md:h-[1.5625rem]">
               <a
                 href="#"
-                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px]"
+                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
               >
                 home
               </a>
               <a
                 href="#"
-                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px]"
+                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
               >
                 headphones
               </a>
               <a
                 href="#"
-                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px]"
+                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
               >
                 speakers
               </a>
               <a
                 href="#"
-                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px]"
+                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
               >
                 earphones
               </a>
             </div>
           </div>
-          <div className="mt-[3rem]">
-            <p className="opacity-50 text-[0.9375rem] leading-[1.5625rem] text-center font-medium">
+          <div className="mt-[3rem] lg:w-[33.75rem]">
+            <p className="opacity-50 text-[0.9375rem] leading-[1.5625rem] text-center font-medium md:text-left">
               Audiophile is an all in one stop to fulfill your audio needs.
               We're a small team of music lovers and sound specialists who are
               devoted to helping you get the most out of personal audio. Come
@@ -45,11 +51,11 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="mt-[3rem] flex flex-col gap-12">
+        <div className="mt-[3rem] flex flex-col gap-12 md:flex-row md:justify-between md:w-full">
           <p className=" opacity-50 text-[0.9375rem] leading-[1.5625rem] text-center font-bold">
             Copyright 2022. All rights Reserved
           </p>
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-6 md:items-end lg:absolute lg:top-[226px] lg:right-[1rem]">
             <a href="#" className="h-[1.5rem] hover:text-[#d87d4a]">
               <FaFacebookSquare size={25} />
             </a>
