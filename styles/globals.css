@@ -61,6 +61,8 @@
     padding: 1.5rem;
   }
 
+  .mobile_nav {
+  }
   .mobile_nav > *.active {
     color: #d87d4a;
   }

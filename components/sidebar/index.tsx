@@ -51,7 +51,7 @@ const Sidebar = ({ showNav }: SidebarProps) => {
           className="lg:hidden sidebar"
         >
           <motion.ul
-            className="lg:hidden space-y-6 mobile_nav"
+            className="lg:hidden  mobile_nav"
             variants={variants}
             initial="closed"
             animate="open"
@@ -68,7 +68,7 @@ const Sidebar = ({ showNav }: SidebarProps) => {
                 key={item.id}
                 className={`${
                   selected == item.title ? "active" : ""
-                } text-xl font-semibold uppercase tracking-wider text-black hover:text-[#d87d4a] cursor-pointer`}
+                } text-xl font-semibold uppercase tracking-wider text-black hover:text-[#d87d4a] cursor-pointer my-4`}
               >
                 {item.title}
               </motion.li>
