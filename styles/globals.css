@@ -61,7 +61,7 @@
     padding: 1.5rem;
   }
 
-  .sidebar > *.active {
+  .mobile_nav > *.active {
     color: #d87d4a;
   }
   .primary__nav > *.active {

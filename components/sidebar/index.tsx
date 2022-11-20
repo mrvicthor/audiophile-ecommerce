@@ -51,7 +51,7 @@ const Sidebar = ({ showNav }: SidebarProps) => {
           className="lg:hidden sidebar"
         >
           <motion.ul
-            className="lg:hidden space-y-6"
+            className="lg:hidden space-y-6 mobile_nav"
             variants={variants}
             initial="closed"
             animate="open"
