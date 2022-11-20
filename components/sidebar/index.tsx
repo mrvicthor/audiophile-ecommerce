@@ -9,7 +9,10 @@ const Sidebar = ({ showNav }: SidebarProps) => {
   const [selected, setSelected] = useState<string>("home");
   const variants = {
     open: {
-      transition: { staggerChildren: 0.2, staggerDirection: 1 },
+      transition: {
+        staggerChildren: 0.2,
+        staggerDirection: 1,
+      },
     },
     closed: {
       transition: {
@@ -48,7 +51,7 @@ const Sidebar = ({ showNav }: SidebarProps) => {
           className="lg:hidden sidebar"
         >
           <motion.ul
-            className="lg:hidden sidebar"
+            className="lg:hidden space-y-6"
             variants={variants}
             initial="closed"
             animate="open"

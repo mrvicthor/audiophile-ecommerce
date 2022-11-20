@@ -55,6 +55,7 @@
     display: flex;
     width: 100vw;
     z-index: 10000;
+    height: 100vh;
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem;
