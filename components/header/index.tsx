@@ -45,9 +45,9 @@ const Header = ({ style }: HeaderProps) => {
     <header
       className={`${showHeader ? "top-0" : ""} ${
         style ? style : "bg-[#191919]"
-      } px-6 h-[91px] md:h-[90px]   text-white lg:h-[97px] sticky w-full z-50`}
+      } px-6 h-[91px] md:h-[90px] border-b-[1px] border-[#979797]  text-white md:border-[0] lg:h-[97px] sticky w-full z-50`}
     >
-      <div className="py-8 lg:max-w-[69.364rem] lg:mx-auto  border-b-[1px] border-[#979797]">
+      <div className="py-8 lg:max-w-[69.364rem] lg:mx-auto  md:border-b-[1px] md:border-[#979797]">
         <nav className="flex items-center justify-between">
           <div className="lg:hidden">
             <button
