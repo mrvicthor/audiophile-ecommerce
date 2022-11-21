@@ -3,11 +3,20 @@ import { Sidebar } from "../index";
 import { BsCart3 } from "react-icons/bs";
 import { useCycle } from "framer-motion";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
-const Header = () => {
+type HeaderProps = {
+  style?: string;
+};
+
+const Header = ({ style }: HeaderProps) => {
   const [showNav, setShowNav] = useCycle(false, true);
   const [showHeader, setShowHeader] = useState<boolean>(true);
   const [scrollValue, setScrollValue] = useState<number>(0);
+
+  const router = useRouter();
 
   const showNavbar = () => {
     if (window.scrollY > scrollValue) {
@@ -34,11 +43,11 @@ const Header = () => {
 
   return (
     <header
-      className={`${
-        showHeader ? "top-0" : ""
-      } px-6 h-[91px] md:h-[90px]  bg-[#191919] text-white lg:h-[97px] sticky w-full z-50`}
+      className={`${showHeader ? "top-0" : ""} ${
+        style ? style : "bg-[#191919]"
+      } px-6 h-[91px] md:h-[90px]   text-white lg:h-[97px] sticky w-full z-50`}
     >
-      <div className="py-8 lg:max-w-[69.364rem] lg:mx-auto  lg:border-b-[1px] lg:border-[#979797]">
+      <div className="py-8 lg:max-w-[69.364rem] lg:mx-auto  border-b-[1px] border-[#979797]">
         <nav className="flex items-center justify-between">
           <div className="lg:hidden">
             <button
@@ -55,27 +64,52 @@ const Header = () => {
           {showNav && <div className="my_overlay" />}
           <Sidebar showNav={showNav} />
 
-          <div className="md:mr-auto md:px-10 lg:px-0">
-            <a className="h-[25px] font-bold text-lg md:text-xl cursor-pointer hover:text-[#d87d4a]">
-              audiophile
-            </a>
+          <div className="md:mr-auto md:px-10 lg:px-0 lg:mr-0">
+            <Link
+              href="/"
+              className="h-[25px] font-bold text-lg md:text-xl cursor-pointer hover:text-[#d87d4a]"
+            >
+              <Image
+                src="/images/audiophile2.svg"
+                width={150}
+                height={150}
+                alt="logo"
+                className="hover:text-[#d87d4a]"
+              />
+            </Link>
           </div>
           <ul
-            className="hidden primary__nav lg:flex lg:gap-[2.125rem] lg:max-w-[26.81rem] lg:mr-auto"
+            className="hidden primary__nav lg:flex lg:gap-[2.125rem] lg:max-w-[26.81rem] lg:mr-[11rem]"
             id="primary__nav"
             data-visible={showNav ? "true" : "false"}
           >
-            <li className="active text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer">
-              home
+            <li
+              className={`${
+                router.pathname === "/" ? "active" : "null"
+              } text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer`}
+            >
+              <Link href="/">home</Link>
             </li>
-            <li className="text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer">
-              headphones
+            <li
+              className={`${
+                router.pathname === "/headphones" ? "active" : "null"
+              } text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer`}
+            >
+              <Link href="/headphones">headphones</Link>
             </li>
-            <li className="text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer">
-              speakers
+            <li
+              className={`${
+                router.pathname === "/speakers" ? "active" : "null"
+              } text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer`}
+            >
+              <Link href="/speakers">speakers</Link>
             </li>
-            <li className="text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer">
-              earphones
+            <li
+              className={`${
+                router.pathname === "/earphones" ? "active" : "null"
+              } text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer`}
+            >
+              <Link href="/earphones">earphones</Link>
             </li>
           </ul>
           <div>

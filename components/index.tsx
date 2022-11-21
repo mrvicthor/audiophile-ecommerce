@@ -9,6 +9,7 @@ import SpeakerProduct from "./speakerproduct";
 import Earphone from "./earphone";
 import Gallery from "./gallery";
 import Footer from "./footer";
+import Title from "./title";
 export {
   Gallery,
   Header,
@@ -21,4 +22,5 @@ export {
   SpeakerProduct,
   Earphone,
   Footer,
+  Title,
 };

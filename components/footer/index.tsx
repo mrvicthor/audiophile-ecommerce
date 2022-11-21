@@ -1,5 +1,6 @@
 import { FaFacebookSquare, FaTwitter, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-[#101010]">
@@ -16,30 +17,30 @@ const Footer = () => {
               />
             </div>
             <div className="flex flex-col items-center h-[9.25rem] gap-4 md:flex-row md:h-[1.5625rem]">
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
               >
                 home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
               >
                 headphones
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
               >
                 speakers
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
               >
                 earphones
-              </a>
+              </Link>
             </div>
           </div>
           <div className="mt-[3rem] lg:w-[33.75rem]">

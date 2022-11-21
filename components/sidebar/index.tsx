@@ -1,12 +1,13 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 type SidebarProps = {
   showNav: boolean;
 };
 
 const Sidebar = ({ showNav }: SidebarProps) => {
-  const [selected, setSelected] = useState<string>("home");
+  const router = useRouter();
   const variants = {
     open: {
       transition: {
@@ -59,18 +60,17 @@ const Sidebar = ({ showNav }: SidebarProps) => {
           >
             {menu.map((item) => (
               <motion.li
-                onClick={() => {
-                  setSelected(item.title);
-                }}
                 variants={itemVariants}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 key={item.id}
                 className={`${
-                  selected == item.title ? "active" : ""
+                  router.pathname == `/${item.title}` ? "active" : "null"
                 } text-xl font-semibold uppercase tracking-wider text-black hover:text-[#d87d4a] cursor-pointer my-4`}
               >
-                {item.title}
+                <Link href={item.title === "home" ? "/" : item.title}>
+                  {item.title}
+                </Link>
               </motion.li>
             ))}
           </motion.ul>
