@@ -33,10 +33,10 @@ const Sidebar = ({ showNav }: SidebarProps) => {
   };
 
   const menu = [
-    { id: 1, title: "home" },
-    { id: 2, title: "headphones" },
-    { id: 3, title: "speakers" },
-    { id: 4, title: "earphones" },
+    { id: 1, title: "home", path: "/" },
+    { id: 2, title: "headphones", path: "/headphones" },
+    { id: 3, title: "speakers", path: "/speakers" },
+    { id: 4, title: "earphones", path: "/earphones" },
   ];
 
   return (
@@ -65,7 +65,7 @@ const Sidebar = ({ showNav }: SidebarProps) => {
                 whileTap={{ scale: 0.95 }}
                 key={item.id}
                 className={`${
-                  router.pathname == `/${item.title}` ? "active" : "null"
+                  router.pathname === item.path ? "active" : "null"
                 } text-xl font-semibold uppercase tracking-wider text-black hover:text-[#d87d4a] cursor-pointer my-4`}
               >
                 <Link href={item.title === "home" ? "/" : item.title}>
