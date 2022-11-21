@@ -26,10 +26,10 @@ const Speakers = () => {
                   <h2 className="text-[#d87d4a] font-normal leading-[1.2rem] text-[0.875rem] tracking-[0.625rem] text-center">
                     New Product
                   </h2>
-                  <p className="font-bold text-[1.75rem] leading-[2.39rem] tracking-[1px] text-center text-[#000000]">
+                  <p className="font-bold text-[1.75rem] leading-[2.39rem] tracking-[1px] text-center text-[#000000] uppercase w-[8.75rem]">
                     {speaker.name}
                   </p>
-                  <p className="font-medium text-[0.9375rem] leading-[1.5625rem] text-center text-[#000000]">
+                  <p className="font-medium text-[0.9375rem] leading-[1.5625rem] text-center text-[#000000] opacity-50">
                     {speaker.description}
                   </p>
                   <Link
