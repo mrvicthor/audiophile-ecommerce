@@ -23,7 +23,7 @@ const Speakers = () => {
                   />
                 </div>
                 <article className="flex flex-col gap-[1.5rem] items-center">
-                  <h2 className="text-[#d87d4a] font-normal leading-[1.2rem] text-[0.875rem] tracking-[0.625rem] text-center">
+                  <h2 className="text-[#d87d4a] font-normal leading-[1.2rem] text-[0.875rem] tracking-[0.625rem] text-center uppercase">
                     New Product
                   </h2>
                   <p className="font-bold text-[1.75rem] leading-[2.39rem] tracking-[1px] text-center text-[#000000] uppercase w-[8.75rem]">
