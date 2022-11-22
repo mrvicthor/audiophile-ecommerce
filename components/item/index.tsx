@@ -1,38 +1,29 @@
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import { ReactNode } from "react";
 
 type ItemProps = {
   title: string;
   description: string;
-  imgPath: string | StaticImageData;
-  //   mdImgPath: string;
-  //   lgImgPath: string;
+  children: ReactNode;
 };
 
-const Item = ({
-  title,
-
-  description,
-  imgPath,
-}: //   mdImgPath,
-//   lgImgPath,
-ItemProps) => {
+const Item = ({ title, children, description }: ItemProps) => {
   return (
-    <section className="px-6">
-      <div className="h-[45.25rem] grid gap-8">
-        <div className={`h-[22rem] w-full rounded`}>
-          <div className="md:hidden">
-            <Image src={imgPath} alt="category" height={500} width={500} />
-          </div>
+    <section className="">
+      <div className="h-[45.25rem] grid gap-8 md:h-[44.125rem] md:gap-[3.25rem] lg:h-[35rem] lg:grid-cols-2 lg:gap-[7.8125rem]">
+        <div
+          className={`h-[22rem] w-full rounded overflow-hidden relative lg:h-full`}
+        >
+          {children}
         </div>
-        <article className="flex flex-col gap-[1.5rem]">
-          <h2 className="text-[#d87d4a] font-normal leading-[1.2rem] text-[0.875rem] tracking-[0.625rem] text-center">
+        <article className="flex flex-col gap-[1.5rem] items-center md:px-[3.635rem] lg:items-start lg:justify-center">
+          <h2 className="text-[#d87d4a] font-normal leading-[1.2rem] text-[0.875rem] tracking-[0.625rem] text-center uppercase lg:text-left">
             New Product
           </h2>
-          <p className="font-bold text-[1.75rem] leading-[2.39rem] tracking-[1px] text-center text-[#000000]">
+          <p className="font-bold text-[1.75rem] leading-[2.39rem] tracking-[1px] text-center text-[#000000] uppercase w-[8.75rem] lg:text-left lg:text-[2.5rem]">
             {title}
           </p>
-          <p className="font-medium text-[0.9375rem] leading-[1.5625rem] text-center text-[#000000]">
+          <p className="font-medium text-[0.9375rem] leading-[1.5625rem] text-center text-[#000000] opacity-50 lg:text-left">
             {description}
           </p>
           <Link

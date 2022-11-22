@@ -1,10 +1,13 @@
 import { FaFacebookSquare, FaTwitter, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 const Footer = () => {
+  const router = useRouter();
   return (
     <footer className="bg-[#101010]">
-      <div className="px-6 h-[40.875rem] flex flex-col text-white items-center md:items-start md:h-[25rem] lg:max-w-[69.364rem] lg:mx-auto lg:h-[22.8125rem] lg:relative">
+      <div className="px-6 h-[40.875rem] flex flex-col text-white items-center md:items-start md:h-[25rem] lg:max-w-[69.364rem] lg:mx-auto lg:h-[22.8125rem] lg:relative overflow-hidden">
         <div className="h-[3px] bg-[#d87d4a] w-[6.25rem]" />
         <div className="mt-[3.25rem] md:mt-[3.75rem] w-full">
           <div className="flex flex-col items-center gap-12 md:items-start md:gap-8 lg:flex-row lg:w-full lg:justify-between">
@@ -16,28 +19,36 @@ const Footer = () => {
                 alt="logo"
               />
             </div>
-            <div className="flex flex-col items-center h-[9.25rem] gap-4 md:flex-row md:h-[1.5625rem]">
+            <div className="flex flex-col items-center h-[9.25rem] gap-4 md:flex-row md:h-[1.5625rem] footer__link">
               <Link
                 href="/"
-                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
+                className={`${
+                  router.pathname === "/" ? "active" : "null"
+                } uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]`}
               >
                 home
               </Link>
               <Link
-                href="#"
-                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
+                href="/headphoes"
+                className={`${
+                  router.pathname === "/headphones" ? "active" : "null"
+                } uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]`}
               >
                 headphones
               </Link>
               <Link
-                href="#"
-                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
+                href="/speakers"
+                className={`${
+                  router.pathname === "/speakers" ? "active" : "null"
+                } uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]`}
               >
                 speakers
               </Link>
               <Link
-                href="#"
-                className="uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]"
+                href="/earphones"
+                className={`${
+                  router.pathname === "/earphones" ? "active" : "null"
+                } uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]`}
               >
                 earphones
               </Link>

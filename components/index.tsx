@@ -9,7 +9,7 @@ import SpeakerProduct from "./speakerproduct";
 import Earphone from "./earphone";
 import Gallery from "./gallery";
 import Footer from "./footer";
-import Title from "./title";
+import CategoryLayout from "./categoryLayout";
 import Item from "./item";
 export {
   Gallery,
@@ -23,6 +23,6 @@ export {
   SpeakerProduct,
   Earphone,
   Footer,
-  Title,
+  CategoryLayout,
   Item,
 };

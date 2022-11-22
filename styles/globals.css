@@ -69,6 +69,9 @@
   .primary__nav > *.active {
     color: #d87d4a;
   }
+  .footer__link > *.active {
+    color: #d87d4a;
+  }
   /* .primary__nav[data-visible="true"] {
     transform: translateY(0);
   } */

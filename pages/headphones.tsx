@@ -1,9 +1,11 @@
-import { Title, Item } from ".././components";
+import { CategoryLayout, Item } from ".././components";
 const Headphone = () => {
   return (
     <section>
-      <Title title="headphones" />
-      {/* <Item /> */}
+      <CategoryLayout title="headphones">
+        {/* <Item /> */}
+        <h1>Headphone</h1>
+      </CategoryLayout>
     </section>
   );
 };

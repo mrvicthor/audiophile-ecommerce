@@ -194,6 +194,8 @@ export const speakers = [
     name: "ZX9 Speaker",
     image: {
       desktop: "/images/image-product-zx9-desktop.jpg",
+      mobile: "/images/image-product-zx9-mobilee.jpg",
+      tablet: "/images/image-product-zx9-tablett.jpg",
     },
     category: "speakers",
     new: true,
@@ -209,6 +211,8 @@ export const speakers = [
     name: "ZX7 Speaker",
     image: {
       desktop: "/images/image-product-zx7.jpg",
+      mobile: "/images/image-product-zx7-mobile.jpg",
+      tablet: "/images/image-product-zx7-tablet.jpg",
     },
     category: "speakers",
     new: false,
