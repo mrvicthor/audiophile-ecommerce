@@ -10,26 +10,30 @@ const Speakers = () => {
       <section className="px-6">
         <div className="space-y-[7.5rem] pt-16 lg:max-w-[69.364rem] lg:mx-auto">
           {speakers.map((speaker) => (
-            <Item title={speaker.name} description={speaker.description}>
-              <Image
-                src={speaker.image.mobile}
-                alt={speaker.name}
-                fill
-                className="object-cover md:hidden"
-              />
-              <Image
-                src={speaker.image.desktop}
-                alt={speaker.name}
-                fill
-                className="object-cover object-center hidden md:block lg:hidden"
-              />
-              <Image
-                src={speaker.image.desktop}
-                alt={speaker.name}
-                fill
-                className="object-cover hidden lg:block"
-              />
-            </Item>
+            <div key={speaker.id}>
+              <Item title={speaker.name} description={speaker.description}>
+                <Image
+                  src={speaker.image.mobile}
+                  alt={speaker.name}
+                  fill
+                  objectFit="cover"
+                  className="md:hidden"
+                />
+                <Image
+                  src={speaker.image.mobile}
+                  alt={speaker.name}
+                  fill
+                  className="hidden md:block lg:hidden"
+                />
+                <Image
+                  src={speaker.image.desktop}
+                  alt={speaker.name}
+                  fill
+                  objectFit="cover"
+                  className="hidden lg:block"
+                />
+              </Item>
+            </div>
           ))}
         </div>
       </section>

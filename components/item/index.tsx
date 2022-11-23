@@ -12,7 +12,7 @@ const Item = ({ title, children, description }: ItemProps) => {
     <section className="">
       <div className="h-[45.25rem] grid gap-8 md:h-[44.125rem] md:gap-[3.25rem] lg:h-[35rem] lg:grid-cols-2 lg:gap-[7.8125rem]">
         <div
-          className={`h-[22rem] w-full rounded overflow-hidden relative lg:h-full`}
+          className={`h-[22rem] w-full rounded md:h-[22rem] overflow-hidden relative lg:h-full`}
         >
           {children}
         </div>

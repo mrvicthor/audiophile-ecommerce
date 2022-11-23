@@ -9,9 +9,9 @@ interface TitleProps {
 const CategoryLayout = ({ title, children }: TitleProps) => {
   return (
     <>
-      <header className="h-[12rem] bg-[#000000] md:h-[21rem]">
-        <Header style="bg-[#000000]" />
-        <h1 className="text-[1.5625rem] text-white font-bold uppercase leading-[2.390rem] text-center mt-8 tracking-[2px] md:mt-[6.625rem] md:text-[2.5rem] md:leading-[2.75rem] md:tracking-[1.43px]">
+      <Header style="bg-[#000000]" />
+      <header className="h-[6.3125rem] bg-[#000000] md:h-[15.375rem]">
+        <h1 className="text-[1.5625rem] text-white font-bold uppercase leading-[2.390rem] text-center pt-8 tracking-[2px] md:pt-[6.625rem] md:text-[2.5rem] md:leading-[2.75rem] md:tracking-[1.43px]">
           {title}
         </h1>
       </header>
