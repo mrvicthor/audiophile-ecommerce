@@ -1,4 +1,4 @@
-import { CategoryLayout, Item } from "../components";
+import { CategoryLayout, Title } from "../components";
 import { speakers } from "../speaker";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,7 +11,7 @@ const Speakers = () => {
         <div className="space-y-[7.5rem] pt-16 lg:max-w-[69.364rem] lg:mx-auto">
           {speakers.map((speaker) => (
             <div key={speaker.id}>
-              <Item
+              <Title
                 title={speaker.name}
                 description={speaker.description}
                 isNew={speaker.new}
@@ -37,7 +37,7 @@ const Speakers = () => {
                   objectFit="cover"
                   className="hidden lg:block"
                 />
-              </Item>
+              </Title>
             </div>
           ))}
         </div>

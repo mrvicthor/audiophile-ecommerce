@@ -10,7 +10,7 @@ import Earphone from "./earphone";
 import Gallery from "./gallery";
 import Footer from "./footer";
 import CategoryLayout from "./categoryLayout";
-import Item from "./item";
+import Title from "./title";
 export {
   Gallery,
   Header,
@@ -24,5 +24,5 @@ export {
   Earphone,
   Footer,
   CategoryLayout,
-  Item,
+  Title,
 };

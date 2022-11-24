@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
-type ItemProps = {
+type TitleProps = {
   title: string;
   description: string;
   children: ReactNode;
   isNew: boolean;
 };
 
-const Item = ({ title, children, description, isNew }: ItemProps) => {
+const Title = ({ title, children, description, isNew }: TitleProps) => {
   return (
-    <section className="">
+    <section className="mt-[4rem] md:mt-[7.5rem] lg:mt-[10rem]">
       <div className="h-[45.25rem] grid gap-8 md:h-[44.125rem] md:gap-[3.25rem] lg:h-[35rem] lg:grid-cols-2 lg:gap-[7.8125rem]">
         <div
           className={`h-[22rem] w-full rounded md:h-[22rem] overflow-hidden relative lg:h-full`}
@@ -40,4 +40,4 @@ const Item = ({ title, children, description, isNew }: ItemProps) => {
     </section>
   );
 };
-export default Item;
+export default Title;
