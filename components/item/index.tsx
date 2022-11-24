@@ -5,9 +5,10 @@ type ItemProps = {
   title: string;
   description: string;
   children: ReactNode;
+  isNew: boolean;
 };
 
-const Item = ({ title, children, description }: ItemProps) => {
+const Item = ({ title, children, description, isNew }: ItemProps) => {
   return (
     <section className="">
       <div className="h-[45.25rem] grid gap-8 md:h-[44.125rem] md:gap-[3.25rem] lg:h-[35rem] lg:grid-cols-2 lg:gap-[7.8125rem]">
@@ -17,9 +18,11 @@ const Item = ({ title, children, description }: ItemProps) => {
           {children}
         </div>
         <article className="flex flex-col gap-[1.5rem] items-center md:px-[3.635rem] lg:items-start lg:justify-center">
-          <h2 className="text-[#d87d4a] font-normal leading-[1.2rem] text-[0.875rem] tracking-[0.625rem] text-center uppercase lg:text-left">
-            New Product
-          </h2>
+          {isNew && (
+            <h2 className="text-[#d87d4a] font-normal leading-[1.2rem] text-[0.875rem] tracking-[0.625rem] text-center uppercase lg:text-left">
+              New Product
+            </h2>
+          )}
           <p className="font-bold text-[1.75rem] leading-[2.39rem] tracking-[1px] text-center text-[#000000] uppercase w-[8.75rem] lg:text-left lg:text-[2.5rem]">
             {title}
           </p>

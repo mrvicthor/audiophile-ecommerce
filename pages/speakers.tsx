@@ -11,7 +11,11 @@ const Speakers = () => {
         <div className="space-y-[7.5rem] pt-16 lg:max-w-[69.364rem] lg:mx-auto">
           {speakers.map((speaker) => (
             <div key={speaker.id}>
-              <Item title={speaker.name} description={speaker.description}>
+              <Item
+                title={speaker.name}
+                description={speaker.description}
+                isNew={speaker.new}
+              >
                 <Image
                   src={speaker.categoryImage.mobile}
                   alt={speaker.name}
