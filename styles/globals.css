@@ -72,6 +72,7 @@
   .footer__link > *.active {
     color: #d87d4a;
   }
+
   /* .primary__nav[data-visible="true"] {
     transform: translateY(0);
   } */
@@ -110,6 +111,10 @@
     }
     .footer_text {
       width: 33.75rem;
+    }
+
+    .category div:nth-of-type(even) > .image_wrapper {
+      order: 2;
     }
   }
 }

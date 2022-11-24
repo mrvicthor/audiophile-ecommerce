@@ -7,38 +7,34 @@ const Speakers = () => {
   console.log(speakers);
   return (
     <CategoryLayout title="speakers">
-      <section className="px-6">
-        <div className="space-y-[7.5rem] pt-16 lg:max-w-[69.364rem] lg:mx-auto">
+      <section className="px-6 mt-[4rem] md:mt-[7.5rem] lg:mt-[10rem]">
+        <div className="space-y-[7.5rem] pt-16 lg:max-w-[69.364rem] lg:mx-auto category overflow-hidden">
           {speakers.map((speaker) => (
-            <div key={speaker.id}>
-              <Title
-                title={speaker.name}
-                description={speaker.description}
-                isNew={speaker.new}
-              >
-                <Image
-                  src={speaker.categoryImage.mobile}
-                  alt={speaker.name}
-                  fill
-                  objectFit="cover"
-                  className="md:hidden"
-                />
-                <Image
-                  src={speaker.categoryImage.tablet}
-                  alt={speaker.name}
-                  fill
-                  objectFit="cover"
-                  className="hidden md:block lg:hidden"
-                />
-                <Image
-                  src={speaker.categoryImage.desktop}
-                  alt={speaker.name}
-                  fill
-                  objectFit="cover"
-                  className="hidden lg:block"
-                />
-              </Title>
-            </div>
+            <Title
+              key={speaker.id}
+              title={speaker.name}
+              description={speaker.description}
+              isNew={speaker.new}
+            >
+              <Image
+                src={speaker.categoryImage.mobile}
+                alt={speaker.name}
+                fill
+                className="md:hidden object-cover"
+              />
+              <Image
+                src={speaker.categoryImage.tablet}
+                alt={speaker.name}
+                fill
+                className="hidden md:block lg:hidden object-cover"
+              />
+              <Image
+                src={speaker.categoryImage.desktop}
+                alt={speaker.name}
+                fill
+                className="hidden lg:block object-cover"
+              />
+            </Title>
           ))}
         </div>
       </section>

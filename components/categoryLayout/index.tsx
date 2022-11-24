@@ -16,7 +16,7 @@ const CategoryLayout = ({ title, children }: TitleProps) => {
         </h1>
       </header>
       {children}
-      <div className="pt-[4rem] md:pt-[7.5rem] lg:pt-[10rem]">
+      <div className="pt-[4rem] md:pt-[7.5rem] lg:pt-[10rem] overflow-hidden">
         <Products />
       </div>
       <Gallery />
