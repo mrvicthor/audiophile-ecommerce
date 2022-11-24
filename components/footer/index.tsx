@@ -29,7 +29,7 @@ const Footer = () => {
                 home
               </Link>
               <Link
-                href="/headphoes"
+                href="/headphones"
                 className={`${
                   router.pathname === "/headphones" ? "active" : "null"
                 } uppercase font-bold text-[0.8125rem] leading-[1.5625rem] tracking-[2px] hover:text-[#d87d4a]`}

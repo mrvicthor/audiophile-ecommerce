@@ -27,8 +27,8 @@ const Title = ({ title, children, description, isNew }: TitleProps) => {
             New Product
           </h2>
         )}
-        <p className="font-bold text-[1.75rem] leading-[2.39rem] tracking-[1px] text-center text-[#000000] uppercase  lg:text-left lg:text-[2.5rem]">
-          {strArr.length > 3
+        <p className="font-bold text-[1.75rem] leading-[2.39rem] tracking-[1px] w-full text-center text-[#000000] uppercase  lg:text-left lg:text-[2.5rem]">
+          {strArr.length > 2
             ? `${strArr[0]} ${strArr[1]} ${strArr[2]}`
             : strArr[0]}
           <br /> {strArr.slice(-1)}
