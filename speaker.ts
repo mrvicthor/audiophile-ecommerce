@@ -198,6 +198,11 @@ export const speakers = [
       tablet: "/images/image-product-zx9-tablett.jpg",
     },
     category: "speakers",
+    categoryImage: {
+      mobile: "/images/image-category-page-preview-zx9-mobile.jpg",
+      tablet: "/images/image-category-page-preview-zx9-tablet.jpg",
+      desktop: "/images/image-category-page-preview-zx9-desktop.jpg",
+    },
     new: true,
     price: 4500,
     description:
@@ -215,6 +220,11 @@ export const speakers = [
       tablet: "/images/image-product-zx7-tablet.jpg",
     },
     category: "speakers",
+    categoryImage: {
+      desktop: "/images/image-category-page-preview-zx7-desktop.jpg",
+      tablet: "/images/image-category-page-preview-zx7-tablet.jpg",
+      mobile: "/images/image-category-page-preview-zx7-mobile.jpg",
+    },
     new: false,
     price: 3500,
     description:

@@ -13,20 +13,21 @@ const Speakers = () => {
             <div key={speaker.id}>
               <Item title={speaker.name} description={speaker.description}>
                 <Image
-                  src={speaker.image.mobile}
+                  src={speaker.categoryImage.mobile}
                   alt={speaker.name}
                   fill
                   objectFit="cover"
                   className="md:hidden"
                 />
                 <Image
-                  src={speaker.image.mobile}
+                  src={speaker.categoryImage.tablet}
                   alt={speaker.name}
                   fill
+                  objectFit="cover"
                   className="hidden md:block lg:hidden"
                 />
                 <Image
-                  src={speaker.image.desktop}
+                  src={speaker.categoryImage.desktop}
                   alt={speaker.name}
                   fill
                   objectFit="cover"
