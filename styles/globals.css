@@ -97,6 +97,9 @@
     border-radius: 50%;
   }
 
+  .article_title {
+    max-width: 50ch;
+  }
   .inner__circle_child {
     border-radius: 50%;
   }
