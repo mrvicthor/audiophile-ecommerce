@@ -1,6 +1,6 @@
 const Gallery = () => {
   return (
-    <section className="px-6 my-[7.5rem]">
+    <section className="px-6 my-[7.5rem] md:my-[10rem]">
       <div className="h-[43.625rem] md:h-[39.5625rem] lg:h-[36.75rem] lg:max-w-[69.364rem] lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-[7.8125rem] overflow-hidden rounded">
         <div className="h-[18.75rem] w-full bg-[url('/images/image-best-gear-mobile.jpg')] bg-cover bg-no-repeat bg-center rounded md:bg-[url('/images/image-best-gear.jpg')] md:w-full lg:bg-[url('/images/image-best-gear-desktop.jpg')] lg:w-[33.75rem] lg:order-2 lg:h-full" />
         <div className="mt-[2.5rem] md:max-w-[35.8125rem] md:mx-auto lg:max-w-[27.8125rem] lg:self-center">
