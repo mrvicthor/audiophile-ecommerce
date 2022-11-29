@@ -1,16 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import {
-  Header,
-  Banner,
-  Products,
-  Speaker,
-  SpeakerProduct,
-  Earphone,
-  Gallery,
-  Footer,
-  Layout,
-} from "../components";
+import { Banner, Products, Category, Gallery, Layout } from "../components";
 
 export default function Home() {
   return (
@@ -23,9 +13,7 @@ export default function Home() {
       <Layout>
         <Banner />
         <Products />
-        <Speaker />
-        <SpeakerProduct />
-        <Earphone />
+        <Category />
         <Gallery />
       </Layout>
     </div>

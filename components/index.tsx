@@ -12,6 +12,7 @@ import Footer from "./footer";
 import CategoryLayout from "./categoryLayout";
 import Title from "./title";
 import Layout from "./layout";
+import Category from "./category";
 export {
   Gallery,
   Header,
@@ -27,4 +28,5 @@ export {
   CategoryLayout,
   Title,
   Layout,
+  Category,
 };
