@@ -1,10 +1,12 @@
 import { CategoryLayout, Title } from "../components";
-import { speakers } from "../speaker";
+// import { speakers } from "../speaker";
+import { speakers } from "../data";
 import Link from "next/link";
 import Image from "next/image";
 
 const Speakers = () => {
   console.log(speakers);
+
   return (
     <CategoryLayout title="speakers">
       <section className="px-6 mt-[4rem] md:mt-[7.5rem] lg:mt-[10rem]">

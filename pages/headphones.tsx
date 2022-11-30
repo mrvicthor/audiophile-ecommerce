@@ -1,8 +1,6 @@
-// @ts-nocheck
-
 import { CategoryLayout, Title } from ".././components";
 import Image from "next/image";
-import { headphones } from "../headphone";
+import { headphones } from "../data";
 
 const Headphone = () => {
   console.log(headphones);

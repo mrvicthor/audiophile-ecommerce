@@ -1,7 +1,7 @@
 import { Button } from "../index";
 const Speaker = () => {
   return (
-    <section className="mt-[7.5rem] mb-[1.5rem] md:mb-[2rem] lg:mb-[3rem] px-6">
+    <section className="mb-[1.5rem] md:mb-[2rem] lg:mb-[3rem] px-6">
       <div className="bg-[#d87d4a] h-[600px] overflow-hidden relative rounded md:h-[720px] lg:h-[560px] lg:max-w-[69.364rem] lg:mx-auto">
         <div className="outer__circle h-[558px] w-[558px] border-[#d8d8d8] border-[0.5px] absolute bottom-[163px] left-[50%] -translate-x-[275px] md:h-[944px] md:w-[944px] md:bottom-[64px] md:-translate-x-[464px] lg:-translate-x-[697px] lg:-top-[36px]" />
         <div className="inner__circle border-[#d8d8d8] border-[0.5px] h-[20.4375rem] w-[20.4375rem] rounded-[50%] absolute left-[50%] -translate-x-[50%] md:h-[33.875rem] md:w-[33.875rem] md:bottom-[265px] lg:bottom-0 lg:top-[165px] lg:-translate-x-0 lg:left-[52px]" />
