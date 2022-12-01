@@ -15,7 +15,7 @@ const DetailsPage = ({ product }: { product: any }) => {
             go back
           </Link>
           <div className="mt-[1.5rem] grid gap-8">
-            <div className="relative h-[20.4375rem] w-[20.4375rem]">
+            <div className="relative h-[20.4375rem] w-full">
               <Image
                 src={product.image?.mobile}
                 fill
