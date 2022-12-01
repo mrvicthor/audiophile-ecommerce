@@ -1,6 +1,8 @@
 import { Button } from "../index";
+import { useRouter } from "next/router";
 
 const Banner = () => {
+  const router = useRouter();
   return (
     <section className="h-[510px] md:h-[639px] lg:h-[632px]">
       <div className="px-6 banner bg-[url('/images/image-header.jpg')] bg-no-repeat bg-cover h-full md:bg-[url('/images/image-header-tablet.jpg')] lg:bg-[url('/images/image-hero.jpg')] ">
@@ -17,7 +19,12 @@ const Banner = () => {
           </p>
           <Button
             title="See Product"
-            handleClick={() => console.log("button clicked")}
+            handleClick={() =>
+              router.push({
+                pathname: "/product/[slug]",
+                query: { slug: "xx99-mark-two-headphones" },
+              })
+            }
             style="h-[48px] text-white bg-[#d87d4a] w-[160px] mt-[28px] uppercase hover:bg-[#fbaf85]"
           />
         </div>
