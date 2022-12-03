@@ -10,6 +10,7 @@ const Earphones = () => {
           <div className="space-y-[7.5rem] pt-16 lg:max-w-[69.364rem] lg:mx-auto category overflow-hidden">
             {earphones.map((earphone) => (
               <Title
+                slug={earphone.slug}
                 key={earphone.id}
                 title={earphone.name}
                 description={earphone.description}

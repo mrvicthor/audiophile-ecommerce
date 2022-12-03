@@ -1,15 +1,18 @@
-import Link from "next/link";
+import { Button } from "../index";
 import { ReactNode } from "react";
+import { useRouter } from "next/router";
 
 type TitleProps = {
   title: string;
   description: string;
   children: ReactNode;
   isNew: boolean;
+  slug: string;
 };
 
-const Title = ({ title, children, description, isNew }: TitleProps) => {
+const Title = ({ title, children, description, isNew, slug }: TitleProps) => {
   const strArr = title.split(" ");
+  const router = useRouter();
 
   console.log(strArr);
   return (
@@ -34,12 +37,16 @@ const Title = ({ title, children, description, isNew }: TitleProps) => {
         <p className="font-medium text-[0.9375rem] leading-[1.5625rem] text-center text-[#000000] opacity-50 lg:text-left">
           {description}
         </p>
-        <Link
-          href="#"
-          className="h-[48px] text-white bg-[#d87d4a] w-[160px]  uppercase hover:bg-[#fbaf85] py-3 text-center"
-        >
-          See Product
-        </Link>
+        <Button
+          title="see product"
+          style="h-[48px] text-white bg-[#d87d4a] w-[160px]  uppercase hover:bg-[#fbaf85] py-3 text-center"
+          handleClick={() =>
+            router.push({
+              pathname: "/product/[slug]",
+              query: { slug },
+            })
+          }
+        />
       </article>
     </div>
   );

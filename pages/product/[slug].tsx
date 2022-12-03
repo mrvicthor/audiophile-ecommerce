@@ -49,7 +49,7 @@ const DetailsPage = ({ product }: { product: any }) => {
                 </p>
               )}
               <h1 className="uppercase text-[1.75rem] leading-[2.390rem] font-bold tracking-[1px] text-[#000000] lg:text-[2.5rem]">
-                {strArr.length > 2
+                {strArr.length > 3
                   ? `${strArr[0]} ${strArr[1]} ${strArr[2]}`
                   : `${strArr[0]}`}{" "}
                 <span className="block">{strArr.slice(-1)}</span>

@@ -13,6 +13,7 @@ const Speakers = () => {
         <div className="space-y-[7.5rem] pt-16 lg:max-w-[69.364rem] lg:mx-auto category overflow-hidden">
           {speakers.map((speaker) => (
             <Title
+              slug={speaker.slug}
               key={speaker.id}
               title={speaker.name}
               description={speaker.description}

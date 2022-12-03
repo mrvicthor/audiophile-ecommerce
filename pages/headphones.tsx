@@ -11,6 +11,7 @@ const Headphone = () => {
           <div className="space-y-[7.5rem] pt-16 lg:max-w-[69.364rem] lg:mx-auto category overflow-hidden">
             {headphones.map((headphone) => (
               <Title
+                slug={headphone.slug}
                 key={headphone.id}
                 title={headphone.name}
                 description={headphone.description}
