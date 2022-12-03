@@ -62,7 +62,7 @@ const DetailsPage = ({ product }: { product: any }) => {
               </p>
               <div className="grid grid-cols-2 gap-4 mt-[0.4375rem] lg:w-[18.5rem]">
                 <button className="bg-[#f1f1f1] h-[3rem]  text-[#000000] uppercase lg:w-[7.5rem]">
-                  1
+                  {product.quantity}
                 </button>
                 <Button
                   title="add to cart"
@@ -202,7 +202,12 @@ const DetailsPage = ({ product }: { product: any }) => {
                   <Button
                     title="see product"
                     style="h-[48px] text-white bg-[#d87d4a] w-[160px] uppercase hover:bg-[#fbaf85]"
-                    handleClick={() => console.log("Clicked")}
+                    handleClick={() =>
+                      router.push({
+                        pathname: "/product/[slug]",
+                        query: { slug: product.others[0].slug },
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -234,7 +239,12 @@ const DetailsPage = ({ product }: { product: any }) => {
                   <Button
                     title="see product"
                     style="h-[48px] text-white bg-[#d87d4a] w-[160px] uppercase hover:bg-[#fbaf85]"
-                    handleClick={() => console.log("Clicked")}
+                    handleClick={() =>
+                      router.push({
+                        pathname: "/product/[slug]",
+                        query: { slug: product.others[1].slug },
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -266,7 +276,12 @@ const DetailsPage = ({ product }: { product: any }) => {
                   <Button
                     title="see product"
                     style="h-[48px] text-white bg-[#d87d4a] w-[160px] uppercase hover:bg-[#fbaf85]"
-                    handleClick={() => console.log("Clicked")}
+                    handleClick={() =>
+                      router.push({
+                        pathname: "/product/[slug]",
+                        query: { slug: product.others[2].slug },
+                      })
+                    }
                   />
                 </div>
               </div>

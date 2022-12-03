@@ -1,6 +1,9 @@
 import { Button } from "../index";
+import { useRouter } from "next/router";
 
 const SpeakerProduct = () => {
+  const router = useRouter();
+
   return (
     <section className="px-6">
       <div className="h-[320px] bg-[url('/images/image-speaker-zx7.jpg')] bg-cover bg-no-repeat relative md:bg-[url('/images/image-speaker-zx7-tablet.jpg')] lg:bg-[url('/images/image-speaker-zx7-desktop.jpg')] lg:max-w-[69.364rem] lg:mx-auto rounded">
@@ -10,7 +13,12 @@ const SpeakerProduct = () => {
           </h3>
           <Button
             title="see product"
-            handleClick={() => console.log("button clicked")}
+            handleClick={() =>
+              router.push({
+                pathname: "/product/[slug]",
+                query: { slug: "zx7-speaker" },
+              })
+            }
             style="h-[48px] text-[black] border border-[#000000] font-bold w-[160px] uppercase hover:bg-[black] hover:text-[white]"
           />
         </div>

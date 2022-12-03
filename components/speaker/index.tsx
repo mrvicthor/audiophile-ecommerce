@@ -1,5 +1,9 @@
 import { Button } from "../index";
+import { useRouter } from "next/router";
+
 const Speaker = () => {
+  const router = useRouter();
+
   return (
     <section className="mb-[1.5rem] md:mb-[2rem] lg:mb-[3rem] px-6">
       <div className="bg-[#d87d4a] h-[600px] overflow-hidden relative rounded md:h-[720px] lg:h-[560px] lg:max-w-[69.364rem] lg:mx-auto">
@@ -19,7 +23,12 @@ const Speaker = () => {
           </p>
           <Button
             title="see product"
-            handleClick={() => console.log("button clicked")}
+            handleClick={() =>
+              router.push({
+                pathname: "/product/[slug]",
+                query: { slug: "zx9-speaker" },
+              })
+            }
             style="h-[48px] text-white bg-[#000000] w-[160px] mt-[0.5rem] font-bold uppercase hover:bg-[#4c4c4c] md:mt-[1.5rem]"
           />
         </div>

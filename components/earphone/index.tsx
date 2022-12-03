@@ -1,5 +1,9 @@
 import { Button } from "../index";
+import { useRouter } from "next/router";
+
 const Earphone = () => {
+  const router = useRouter();
+
   return (
     <section className="px-6 mt-[1.5rem] md:mt-[2rem] lg:mt-[3rem]">
       <div className="h-[26.5rem] flex flex-col gap-[1.5rem] md:h-[20rem] md:flex-row md:gap-[0.6875rem] lg:gap-[1.875rem] lg:max-w-[69.364rem] lg:mx-auto">
@@ -11,7 +15,12 @@ const Earphone = () => {
             </h3>
             <Button
               title="see product"
-              handleClick={() => console.log("button clicked")}
+              handleClick={() =>
+                router.push({
+                  pathname: "/product/[slug]",
+                  query: { slug: "yx1-earphones" },
+                })
+              }
               style="h-[48px] text-[black] border border-[#000000] font-bold w-[160px] uppercase hover:bg-[black] hover:text-[white]"
             />
           </div>

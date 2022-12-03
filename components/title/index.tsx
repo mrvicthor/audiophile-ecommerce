@@ -11,8 +11,6 @@ type TitleProps = {
 const Title = ({ title, children, description, isNew }: TitleProps) => {
   const strArr = title.split(" ");
 
-  // // const heading = strArr.slice(-1);
-  // const [...rest, last] = strArr;
   console.log(strArr);
   return (
     <div className="h-[45.25rem] grid gap-8 md:h-[44.125rem] md:gap-[3.25rem] lg:h-[35rem] lg:grid-cols-2 lg:gap-[7.8125rem]">
