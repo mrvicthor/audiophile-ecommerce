@@ -1,5 +1,6 @@
 import { CategoryLayout, Title } from "../components";
 import { earphones } from "../data";
+
 import Image from "next/image";
 
 const Earphones = () => {

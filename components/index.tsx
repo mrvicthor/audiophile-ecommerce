@@ -13,6 +13,10 @@ import CategoryLayout from "./categoryLayout";
 import Title from "./title";
 import Layout from "./layout";
 import Category from "./category";
+import DetailsPageBanner from "./detailsPageBanner";
+import Features from "./features";
+import DetailsGallery from "./detailsGallery";
+import Suggestion from "./suggestion";
 export {
   Gallery,
   Header,
@@ -29,4 +33,8 @@ export {
   Title,
   Layout,
   Category,
+  DetailsPageBanner,
+  Features,
+  DetailsGallery,
+  Suggestion,
 };

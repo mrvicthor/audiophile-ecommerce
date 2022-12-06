@@ -4,9 +4,11 @@ import Link from "next/link";
 
 type SidebarProps = {
   showNav: boolean;
+  setShowNav: () => void;
 };
 
-const Sidebar = ({ showNav }: SidebarProps) => {
+const Sidebar = ({ showNav, setShowNav }: SidebarProps) => {
+  console.log(showNav);
   const router = useRouter();
   const variants = {
     open: {
@@ -65,10 +67,16 @@ const Sidebar = ({ showNav }: SidebarProps) => {
                 whileTap={{ scale: 0.95 }}
                 key={item.id}
                 className={`${
-                  router.pathname === item.path ? "active" : "null"
+                  router.pathname === item.path ? "active" : ""
                 } text-xl font-semibold uppercase tracking-wider text-black hover:text-[#d87d4a] cursor-pointer my-4`}
               >
-                <Link href={item.title === "home" ? "/" : item.title}>
+                <Link
+                  href={item.title === "home" ? "/" : item.path}
+                  onClick={() => {
+                    setShowNav();
+                    router.replace(`${item.path}`);
+                  }}
+                >
                   {item.title}
                 </Link>
               </motion.li>

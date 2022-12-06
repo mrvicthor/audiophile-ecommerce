@@ -15,6 +15,7 @@ const Header = ({ style }: HeaderProps) => {
   const [showNav, setShowNav] = useCycle(false, true);
   const [showHeader, setShowHeader] = useState<boolean>(true);
   const [scrollValue, setScrollValue] = useState<number>(0);
+  const [selected, setSelected] = useState<string>("");
 
   const router = useRouter();
 
@@ -62,7 +63,7 @@ const Header = ({ style }: HeaderProps) => {
             </button>
           </div>
           {showNav && <div className="my_overlay" />}
-          <Sidebar showNav={showNav} />
+          <Sidebar showNav={showNav} setShowNav={setShowNav} />
 
           <div className="md:mr-auto md:px-10 lg:px-0 lg:mr-0">
             <Link
@@ -85,28 +86,28 @@ const Header = ({ style }: HeaderProps) => {
           >
             <li
               className={`${
-                router.pathname === "/" ? "active" : "null"
+                router.pathname === "/" ? "active" : ""
               } text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer`}
             >
               <Link href="/">home</Link>
             </li>
             <li
               className={`${
-                router.pathname === "/headphones" ? "active" : "null"
+                router.pathname === "/headphones" ? "active" : ""
               } text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer`}
             >
               <Link href="/headphones">headphones</Link>
             </li>
             <li
               className={`${
-                router.pathname === "/speakers" ? "active" : "null"
+                router.pathname === "/speakers" ? "active" : ""
               } text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer`}
             >
               <Link href="/speakers">speakers</Link>
             </li>
             <li
               className={`${
-                router.pathname === "/earphones" ? "active" : "null"
+                router.pathname === "/earphones" ? "active" : ""
               } text-xl font-semibold uppercase tracking-wider text-black lg:text-white lg:text-[0.81rem] hover:text-[#d87d4a] cursor-pointer`}
             >
               <Link href="/earphones">earphones</Link>
