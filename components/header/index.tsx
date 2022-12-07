@@ -15,6 +15,7 @@ const Header = ({ style }: HeaderProps) => {
   const [showNav, setShowNav] = useCycle(false, true);
   const [showHeader, setShowHeader] = useState<boolean>(true);
   const [scrollValue, setScrollValue] = useState<number>(0);
+
   const router = useRouter();
 
   const showNavbar = () => {
@@ -61,7 +62,7 @@ const Header = ({ style }: HeaderProps) => {
             </button>
           </div>
           {showNav && <div className="my_overlay" />}
-          <Sidebar showNav={showNav} />
+          <Sidebar showNav={showNav} setShowNav={setShowNav} />
 
           <div className="md:mr-auto md:px-10 lg:px-0 lg:mr-0">
             <Link
