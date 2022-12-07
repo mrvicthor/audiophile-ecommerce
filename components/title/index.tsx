@@ -8,9 +8,17 @@ type TitleProps = {
   children: ReactNode;
   isNew: boolean;
   slug: string;
+  category: string;
 };
 
-const Title = ({ title, children, description, isNew, slug }: TitleProps) => {
+const Title = ({
+  title,
+  children,
+  description,
+  isNew,
+  slug,
+  category,
+}: TitleProps) => {
   const strArr = title.split(" ");
   const router = useRouter();
 

@@ -1,6 +1,5 @@
-import { CategoryLayout, Title } from "../components";
-import { earphones } from "../data";
-
+import { CategoryLayout, Title } from "../../components";
+import { earphones } from "../../data";
 import Image from "next/image";
 
 const Earphones = () => {
@@ -16,6 +15,7 @@ const Earphones = () => {
                 title={earphone.name}
                 description={earphone.description}
                 isNew={earphone.new}
+                category={earphone.category}
               >
                 <Image
                   src={earphone.categoryImage.mobile}

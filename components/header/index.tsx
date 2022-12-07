@@ -15,8 +15,6 @@ const Header = ({ style }: HeaderProps) => {
   const [showNav, setShowNav] = useCycle(false, true);
   const [showHeader, setShowHeader] = useState<boolean>(true);
   const [scrollValue, setScrollValue] = useState<number>(0);
-  const [selected, setSelected] = useState<string>("");
-
   const router = useRouter();
 
   const showNavbar = () => {

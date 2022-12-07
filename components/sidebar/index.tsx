@@ -8,7 +8,6 @@ type SidebarProps = {
 };
 
 const Sidebar = ({ showNav, setShowNav }: SidebarProps) => {
-  console.log(showNav);
   const router = useRouter();
   const variants = {
     open: {
@@ -72,10 +71,7 @@ const Sidebar = ({ showNav, setShowNav }: SidebarProps) => {
               >
                 <Link
                   href={item.title === "home" ? "/" : item.path}
-                  onClick={() => {
-                    setShowNav();
-                    router.replace(`${item.path}`);
-                  }}
+                  onClick={() => setShowNav()}
                 >
                   {item.title}
                 </Link>

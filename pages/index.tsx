@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
 import { Banner, Products, Category, Gallery, Layout } from "../components";
 
 export default function Home() {

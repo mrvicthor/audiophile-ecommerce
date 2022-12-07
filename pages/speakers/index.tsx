@@ -1,7 +1,5 @@
-import { CategoryLayout, Title } from "../components";
-// import { speakers } from "../speaker";
-import { speakers } from "../data";
-import Link from "next/link";
+import { CategoryLayout, Title } from "../../components";
+import { speakers } from "../../data";
 import Image from "next/image";
 
 const Speakers = () => {
@@ -18,6 +16,7 @@ const Speakers = () => {
               title={speaker.name}
               description={speaker.description}
               isNew={speaker.new}
+              category={speaker.category}
             >
               <Image
                 src={speaker.categoryImage.mobile}
