@@ -61,7 +61,7 @@ const Header = ({ style }: HeaderProps) => {
             </button>
           </div>
           {showNav && <div className="my_overlay" />}
-          <Sidebar showNav={showNav} setShowNav={setShowNav} />
+          <Sidebar showNav={showNav} />
 
           <div className="md:mr-auto md:px-10 lg:px-0 lg:mr-0">
             <Link

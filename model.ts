@@ -37,3 +37,15 @@ interface Others extends IImage {
   slug: string;
   name: string;
 }
+
+export interface Cart {
+  items: CartItems[];
+  total: number;
+}
+
+interface CartItems {
+  image: any;
+  name: string;
+  price: number;
+  quantity: number;
+}
