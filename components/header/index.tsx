@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useCart } from "../../store";
 
 type HeaderProps = {
   style?: string;
@@ -15,7 +16,7 @@ const Header = ({ style }: HeaderProps) => {
   const [showNav, setShowNav] = useCycle(false, true);
   const [showHeader, setShowHeader] = useState<boolean>(true);
   const [scrollValue, setScrollValue] = useState<number>(0);
-
+  const { toggleCart } = useCart();
   const router = useRouter();
 
   const showNavbar = () => {
@@ -62,7 +63,7 @@ const Header = ({ style }: HeaderProps) => {
             </button>
           </div>
           {showNav && <div className="my_overlay" />}
-          <Sidebar showNav={showNav} setShowNav={setShowNav} />
+          <Sidebar showNav={showNav} />
 
           <div className="md:mr-auto md:px-10 lg:px-0 lg:mr-0">
             <Link
@@ -113,7 +114,13 @@ const Header = ({ style }: HeaderProps) => {
             </li>
           </ul>
           <div>
-            <button className="cursor-pointer w-5 h-[23px] border-[0] outline-0">
+            <button
+              className="cursor-pointer w-5 h-[23px] border-[0] outline-0"
+              onClick={() => {
+                console.log("cart is visible");
+                toggleCart();
+              }}
+            >
               <span className="sr-only" aria-expanded="false">
                 Cart
               </span>

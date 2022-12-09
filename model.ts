@@ -39,13 +39,5 @@ interface Others extends IImage {
 }
 
 export interface Cart {
-  items: CartItems[];
-  total: number;
-}
-
-interface CartItems {
-  image: any;
-  name: string;
-  price: number;
-  quantity: number;
+  items: Product[];
 }

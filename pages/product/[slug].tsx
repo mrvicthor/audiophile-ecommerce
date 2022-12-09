@@ -9,7 +9,6 @@ import {
   Suggestion,
 } from "../../components";
 import { data } from "../../data";
-import Image from "next/image";
 import { Product } from "../../model";
 import { useRouter } from "next/router";
 
@@ -19,8 +18,6 @@ interface DetailsPageProps {
 
 const DetailsPage = ({ product }: DetailsPageProps) => {
   const router = useRouter();
-
-  console.log(product);
 
   return (
     <Layout>

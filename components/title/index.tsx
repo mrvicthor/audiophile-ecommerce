@@ -22,7 +22,6 @@ const Title = ({
   const strArr = title.split(" ");
   const router = useRouter();
 
-  console.log(strArr);
   return (
     <div className="h-[45.25rem] grid gap-8 md:h-[44.125rem] md:gap-[3.25rem] lg:h-[35rem] lg:grid-cols-2 lg:gap-[7.8125rem]">
       <div

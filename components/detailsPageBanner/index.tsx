@@ -1,40 +1,46 @@
 import { Product } from "../../model";
 import Image from "next/image";
 import { Button } from "../";
+import { useWindowSize } from "./../../hooks/use-Window-Size";
+import { useCart } from "../../store";
 
 interface IProps {
   product: Product;
 }
 
 const DetailsPageBanner = ({ product }: IProps) => {
+  const { addOrder, cart } = useCart();
+  const total = cart.items
+    .map((c) => c.quantity * c.price)
+    .reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0);
+
+  console.log(cart, total);
+  const { width } = useWindowSize();
   const toUSDollar = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
     maximumSignificantDigits: 4,
   });
-  console.log(product);
   const strArr = product.name.split(" ");
   return (
     <div className="mt-[1.5rem] grid gap-8 md:h-[30rem] md:grid-cols-2 rounded-md lg:mt-[3.5rem] lg:h-[35rem] lg:gap-[7.8125rem]">
       <div className="relative h-[20.4375rem] w-full md:h-[30rem] rounded-md md:w-[17.5625rem] lg:h-[35rem] lg:w-[33.75rem]">
-        <Image
-          src={product.image?.mobile}
-          fill
-          alt={product.name}
-          className="object-cover md:hidden rounded-md"
-        />
-        <Image
-          src={product.image.tablet}
-          fill
-          alt={product.name}
-          className="object-cover hidden md:block md:rounded-md lg:hidden"
-        />
-        <Image
-          src={product.image.desktop}
-          fill
-          alt={product.name}
-          className="object-cover hidden rounded-md lg:block"
-        />
+        {width !== undefined && (
+          <Image
+            src={
+              width <= 640
+                ? product.image.mobile
+                : width > 640 && width <= 768
+                ? product.image.tablet
+                : product.image.desktop
+            }
+            fill
+            alt={product.name}
+            className="object-cover rounded-md"
+          />
+        )}
       </div>
       <article className="flex flex-col gap-[1.5rem] md:justify-center">
         {product.new && (
@@ -61,7 +67,7 @@ const DetailsPageBanner = ({ product }: IProps) => {
           <Button
             title="add to cart"
             style="bg-[#d87d4a] h-[3rem] text-white hover:bg-[#fbaf85] uppercase lg:w-[10rem]"
-            handleClick={() => console.log("Add to cart")}
+            handleClick={() => addOrder(product)}
           />
         </div>
       </article>

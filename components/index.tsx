@@ -17,6 +17,7 @@ import DetailsPageBanner from "./detailsPageBanner";
 import Features from "./features";
 import DetailsGallery from "./detailsGallery";
 import Suggestion from "./suggestion";
+import Cart from "./cart";
 export {
   Gallery,
   Header,
@@ -37,4 +38,5 @@ export {
   Features,
   DetailsGallery,
   Suggestion,
+  Cart,
 };

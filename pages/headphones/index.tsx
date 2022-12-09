@@ -3,7 +3,6 @@ import Image from "next/image";
 import { headphones } from "../../data";
 
 const Headphone = () => {
-  console.log(headphones);
   return (
     <section>
       <CategoryLayout title="headphones">
