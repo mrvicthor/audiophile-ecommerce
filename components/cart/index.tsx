@@ -72,7 +72,10 @@ const Cart = () => {
                     </p>
                   </div>
                   <div className="h-8 w-[6rem] bg-[#f1f1f1] flex justify-between items-center px-4">
-                    <button onClick={() => decreaseQuantity(item.slug)}>
+                    <button
+                      onClick={() => decreaseQuantity(item.slug)}
+                      disabled={item.quantity <= 1 ? true : false}
+                    >
                       -
                     </button>
                     <span>{item.quantity}</span>
