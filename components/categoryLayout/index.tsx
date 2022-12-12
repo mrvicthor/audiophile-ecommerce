@@ -1,6 +1,5 @@
 import { Header, Products, Footer, Gallery, Cart } from "../index";
-import { ReactNode } from "react";
-import { useShowCart } from "./../../hooks/use-Boolean";
+import { ReactNode, useEffect } from "react";
 import { useToggle } from "usehooks-ts";
 
 interface TitleProps {
@@ -10,6 +9,16 @@ interface TitleProps {
 
 const CategoryLayout = ({ title, children }: TitleProps) => {
   const [value, toggle] = useToggle();
+
+  useEffect(() => {
+    if (value) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [value]);
+
   return (
     <>
       <Header style="bg-[#000000]" toggle={toggle} />

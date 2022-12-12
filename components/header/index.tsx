@@ -19,10 +19,6 @@ const Header = ({ style, toggle }: HeaderProps) => {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   console.log(value);
-  // }, [value]);
-
   const showNavbar = () => {
     if (window.scrollY > scrollValue) {
       setShowHeader(false);

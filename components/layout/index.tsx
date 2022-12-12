@@ -10,7 +10,12 @@ const Layout = ({ children }: LayoutProps) => {
   const [value, toggle] = useToggle();
 
   useEffect(() => {
-    console.log(value);
+    if (value) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [value]);
   return (
     <>
