@@ -1,6 +1,5 @@
 import { ReactNode, useEffect } from "react";
 import { Header, Footer, Cart } from "../index";
-import { useShowCart } from "./../../hooks/use-Boolean";
 import { useToggle } from "usehooks-ts";
 
 type LayoutProps = {
