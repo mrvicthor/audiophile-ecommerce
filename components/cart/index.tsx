@@ -1,7 +1,7 @@
 import { useCart } from "../../store";
 import Image from "next/image";
 import { Button } from "../index";
-import { it } from "node:test";
+import { useEffect } from "react";
 
 const Cart = () => {
   const { cart, increaseQuantity, decreaseQuantity, emptyCart } = useCart();
@@ -29,6 +29,11 @@ const Cart = () => {
     .reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
     }, 0);
+
+  useEffect(() => {
+    console.log("Cart is loaded successfully");
+  }, []);
+
   return (
     <section className="px-6 fixed top-[7.125rem] z-50  left-0 right-0">
       <div className="max-h-[30.5rem] bg-[#ffffff]  rounded-md px-7 pb-8">

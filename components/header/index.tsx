@@ -6,18 +6,24 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useCart } from "../../store";
+import { useShowCart } from "../../hooks/use-Boolean";
+import { useToggle } from "usehooks-ts";
 
 type HeaderProps = {
   style?: string;
+  toggle: () => void;
 };
 
-const Header = ({ style }: HeaderProps) => {
+const Header = ({ style, toggle }: HeaderProps) => {
   const [showNav, setShowNav] = useCycle(false, true);
   const [showHeader, setShowHeader] = useState<boolean>(true);
   const [scrollValue, setScrollValue] = useState<number>(0);
-  const { toggleCart } = useCart();
+
   const router = useRouter();
+
+  // useEffect(() => {
+  //   console.log(value);
+  // }, [value]);
 
   const showNavbar = () => {
     if (window.scrollY > scrollValue) {
@@ -116,10 +122,7 @@ const Header = ({ style }: HeaderProps) => {
           <div>
             <button
               className="cursor-pointer w-5 h-[23px] border-[0] outline-0"
-              onClick={() => {
-                console.log("cart is visible");
-                toggleCart();
-              }}
+              onClick={toggle}
             >
               <span className="sr-only" aria-expanded="false">
                 Cart

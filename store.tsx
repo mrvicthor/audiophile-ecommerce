@@ -3,9 +3,6 @@ import { useLocalStorage } from "usehooks-ts";
 
 export const useCart = () => {
   const [cart, setCart] = useLocalStorage<Cart>("cart", { items: [] });
-  const [showCart, setShowCart] = useLocalStorage("hidden", false);
-
-  const toggleCart = () => setShowCart(!showCart);
 
   const addOrder = (order: Product) => {
     if (cart.items.find((item) => item.slug === order.slug) !== undefined) {
@@ -53,7 +50,5 @@ export const useCart = () => {
     increaseQuantity,
     decreaseQuantity,
     emptyCart,
-    showCart,
-    toggleCart,
   };
 };

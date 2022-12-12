@@ -1,21 +1,25 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect } from "react";
 import { Header, Footer, Cart } from "../index";
-import { useCart } from "../../store";
+import { useShowCart } from "./../../hooks/use-Boolean";
+import { useToggle } from "usehooks-ts";
 
 type LayoutProps = {
   children: ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const { showCart } = useCart();
+  const [value, toggle] = useToggle();
 
+  useEffect(() => {
+    console.log(value);
+  }, [value]);
   return (
     <>
-      <Header />
-      {showCart && (
+      <Header toggle={toggle} />
+      {value && (
         <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#979797] z-40 opacity-40" />
       )}
-      {showCart && <Cart />}
+      {value && <Cart />}
       <main>{children}</main>
       <Footer />
     </>
