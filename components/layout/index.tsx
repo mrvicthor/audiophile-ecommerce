@@ -24,7 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#979797] z-40 opacity-40" />
       )}
       {value && <Cart />}
-      <main>{children}</main>
+      <main className="">{children}</main>
       <Footer />
     </>
   );

@@ -18,6 +18,8 @@ import Features from "./features";
 import DetailsGallery from "./detailsGallery";
 import Suggestion from "./suggestion";
 import Cart from "./cart";
+import { InputField } from "./input";
+
 export {
   Gallery,
   Header,
@@ -39,4 +41,5 @@ export {
   DetailsGallery,
   Suggestion,
   Cart,
+  InputField,
 };

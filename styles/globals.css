@@ -85,6 +85,10 @@
     background-position: center 88%;
   }
 
+  input::placeholder {
+    color: #cfcfcf;
+  }
+
   .image_shadow {
     position: absolute;
     width: 20%;

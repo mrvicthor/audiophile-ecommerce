@@ -41,3 +41,15 @@ interface Others extends IImage {
 export interface Cart {
   items: Product[];
 }
+
+export interface FormInput {
+  Name: string;
+  "Email Address": string;
+  "Phone Number": string;
+  "Your Address": string;
+  "Zip Code": string;
+  City: string;
+  Country: string;
+  eMoney: string;
+  ePin: string;
+}

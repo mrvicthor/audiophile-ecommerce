@@ -2,8 +2,10 @@ import { useCart } from "../../store";
 import Image from "next/image";
 import { Button } from "../index";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Cart = () => {
+  const router = useRouter();
   const { cart, increaseQuantity, decreaseQuantity, emptyCart } = useCart();
   const removeLastString = (value: string) => {
     const strArr = value.split(" ");
@@ -107,7 +109,7 @@ const Cart = () => {
               <Button
                 style="mt-6 bg-[#d87d4a] text-[#ffffff] w-full h-12 uppercase hover:opacity-50"
                 title="checkout"
-                handleClick={() => console.log("checkout")}
+                handleClick={() => router.push("/checkout")}
               />
             </>
           )}
