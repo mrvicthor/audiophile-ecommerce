@@ -55,7 +55,7 @@ const Sidebar = ({ showNav }: SidebarProps) => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="mt-12 grid gap-16 lg:hidden mobile_nav"
+            className="mt-12 grid gap-16 md:grid-cols-3 md:items-center md:pt-20 lg:hidden mobile_nav"
           >
             <motion.div variants={itemVariants}>
               <Product

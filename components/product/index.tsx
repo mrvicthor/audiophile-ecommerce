@@ -13,12 +13,12 @@ const Product = ({ imagePath, title, style, content }: ProductProps) => {
     <div
       className={`${
         style ? style : "h-[10.3125rem]"
-      } product md:h-[10.075rem] lg:h-[12.75rem] cursor-pointer border border-red-400`}
+      } product md:h-[10.075rem] lg:h-[12.75rem] cursor-pointer`}
     >
       <div
         className={`bg-[#f1f1f1] ${
           content ? content : "h-[10.3125rem]"
-        } md:h-[10.075rem] lg:h-[12.75rem] rounded-lg relative flex items-center justify-center border border-green-400`}
+        } md:h-[10.075rem] lg:h-[12.75rem] rounded-lg relative flex items-center justify-center`}
       >
         <div className="h-[104px] w-[79.92px] absolute z-10 top-[4%] -translate-y-[50%] left-[50%] -translate-x-[50%]">
           <Image width={500} height={500} src={imagePath} alt="product-image" />
