@@ -23,9 +23,9 @@ const Headphone = () => {
                 {width !== undefined && (
                   <Image
                     src={
-                      width <= 640
+                      width <= 768
                         ? headphone.categoryImage.mobile
-                        : width > 640 && width <= 768
+                        : width > 768 && width <= 1024
                         ? headphone.categoryImage.tablet
                         : headphone.categoryImage.desktop
                     }

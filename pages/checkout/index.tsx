@@ -2,9 +2,16 @@ import { Layout, Button, InputField } from "../../components";
 import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FormInput } from "../../model";
+import { useState, useEffect } from "react";
 
 const CheckoutPage = () => {
+  const [ePayment, setEPayment] = useState<boolean>(false);
+  const [cashPayment, setCashPayment] = useState<boolean>(false);
   const router = useRouter();
+
+  useEffect(() => {
+    console.log(ePayment);
+  }, [ePayment]);
   const {
     register,
     handleSubmit,
@@ -30,9 +37,9 @@ const CheckoutPage = () => {
             <h1 className="uppercase font-bold text-2xl leading-[2.39rem] tracking-[1px] text-[#000000]">
               checkout
             </h1>
-            <h2 className="uppercase text-[#d87d4a] font-bold leading-[1.5625rem] tracking-[0.93px] text-[0.8125rem] mt-8">
+            <p className="uppercase text-[#d87d4a] font-bold leading-[1.5625rem] tracking-[0.93px] text-[0.8125rem] mt-8">
               billing details
-            </h2>
+            </p>
             <div className="mt-4">
               <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -70,6 +77,71 @@ const CheckoutPage = () => {
                     />
                   </div>
                 </div>
+                <p className="uppercase text-[#d87d4a] font-bold leading-[1.5625rem] tracking-[0.93px] text-[0.8125rem] mt-8">
+                  shipping info
+                </p>
+                <div>
+                  <InputField
+                    label="Your Address"
+                    register={register}
+                    required
+                  />
+                </div>
+                <div>
+                  <InputField label="Zip Code" register={register} required />
+                </div>
+                <div>
+                  <InputField label="City" register={register} required />
+                </div>
+                <div>
+                  <InputField label="Country" register={register} required />
+                </div>
+                <p className="uppercase text-[#d87d4a] font-bold leading-[1.5625rem] tracking-[0.93px] text-[0.8125rem] mt-8">
+                  payment details
+                </p>
+                <div className="flex flex-col gap-[0.5625rem] w-[100%]">
+                  <label className="font-bold text-[#000000] text-[0.75rem] capitalize">
+                    payment method
+                  </label>
+
+                  <label className="radio__container w-[100%] font-bold  block rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf] relative pl-[4rem] pt-4 mb-4 cursor-pointer text-sm">
+                    <input
+                      type="radio"
+                      checked={ePayment}
+                      onChange={(e) => setEPayment(e.target.checked)}
+                    />
+                    e-Money
+                    <span className="checkmark" />
+                  </label>
+                  <label className="radio__container w-[100%] font-bold block rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf] relative pl-[4rem] pt-4 mb-4 cursor-pointer text-sm">
+                    <input
+                      type="radio"
+                      checked={ePayment === false ? true : false}
+                      onChange={(e) => setEPayment(!e.target.checked)}
+                    />
+                    cash on delivery
+                    <span className="checkmark" />
+                  </label>
+                </div>
+
+                {ePayment == true && (
+                  <>
+                    <div>
+                      <InputField
+                        label="e-Money Number"
+                        register={register}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <InputField
+                        label="e-Money Pin"
+                        register={register}
+                        required
+                      />
+                    </div>
+                  </>
+                )}
               </form>
             </div>
             <div></div>

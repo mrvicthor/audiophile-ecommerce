@@ -50,6 +50,6 @@ export interface FormInput {
   "Zip Code": string;
   City: string;
   Country: string;
-  eMoney: string;
-  ePin: string;
+  "e-Money Number"?: string;
+  "e-Money Pin"?: string;
 }

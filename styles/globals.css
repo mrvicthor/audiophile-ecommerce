@@ -60,6 +60,56 @@
     gap: 1.5rem;
     padding: 1.5rem;
   }
+  .radio__container {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .radio__container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 21px;
+    height: 25px;
+    width: 25px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+  }
+  .radio__container:hover input ~ .checkmark {
+    background-color: #cfcfcf;
+  }
+  .radio__container input:checked ~ .checkmark {
+    background-color: white;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .radio__container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .radio__container .checkmark:after {
+    top: 11px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #d87d4a;
+  }
 
   .mobile_nav > *.active {
     color: #d87d4a;
