@@ -7,7 +7,7 @@ interface CartProps {
 }
 
 const CartItem = ({ item }: CartProps) => {
-  const { cart, increaseQuantity, decreaseQuantity } = useCart();
+  const { increaseQuantity, decreaseQuantity } = useCart();
   const removeLastString = (value: string) => {
     const strArr = value.split(" ");
     return strArr.length > 3
