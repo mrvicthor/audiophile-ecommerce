@@ -19,6 +19,8 @@ import DetailsGallery from "./detailsGallery";
 import Suggestion from "./suggestion";
 import Cart from "./cart";
 import { InputField } from "./input";
+import CartItem from "./cartItem";
+import CheckoutItem from "./checkoutList";
 
 export {
   Gallery,
@@ -42,4 +44,6 @@ export {
   Suggestion,
   Cart,
   InputField,
+  CartItem,
+  CheckoutItem,
 };
