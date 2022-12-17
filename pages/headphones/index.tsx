@@ -1,8 +1,11 @@
 import { CategoryLayout, Title } from "../../components";
 import Image from "next/image";
 import { headphones } from "../../data";
+import { useWindowSize } from "./../../hooks/use-Window-Size";
 
 const Headphone = () => {
+  const { width } = useWindowSize();
+
   return (
     <section>
       <CategoryLayout title="headphones">
@@ -17,24 +20,20 @@ const Headphone = () => {
                 isNew={headphone.new}
                 category={headphone.category}
               >
-                <Image
-                  src={headphone.categoryImage.mobile}
-                  alt={headphone.name}
-                  fill
-                  className="md:hidden object-cover"
-                />
-                <Image
-                  src={headphone.categoryImage.tablet}
-                  alt={headphone.name}
-                  fill
-                  className="hidden md:block lg:hidden object-cover"
-                />
-                <Image
-                  src={headphone.categoryImage.desktop}
-                  alt={headphone.name}
-                  fill
-                  className="hidden lg:block object-cover"
-                />
+                {width !== undefined && (
+                  <Image
+                    src={
+                      width <= 640
+                        ? headphone.categoryImage.mobile
+                        : width > 640 && width <= 768
+                        ? headphone.categoryImage.tablet
+                        : headphone.categoryImage.desktop
+                    }
+                    fill
+                    alt={headphone.name}
+                    className="object-cover rounded-md"
+                  />
+                )}
               </Title>
             ))}
           </div>

@@ -20,7 +20,7 @@ const CategoryLayout = ({ title, children }: TitleProps) => {
   }, [value]);
 
   return (
-    <section className="bg-[#f2f2f2]">
+    <section className="">
       <Header style="bg-[#000000]" toggle={toggle} />
       {value && (
         <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#979797] z-40 opacity-40" />

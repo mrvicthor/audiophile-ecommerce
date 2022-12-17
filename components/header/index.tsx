@@ -62,7 +62,9 @@ const Header = ({ style, toggle }: HeaderProps) => {
               {showNav ? <FaTimes /> : <FaBars />}
             </button>
           </div>
-          {showNav && <div className="my_overlay" />}
+          {showNav && (
+            <div className="fixed top-[90px] bottom-0 left-0 right-0 bg-[#979797] z-10 opacity-40" />
+          )}
           <Sidebar showNav={showNav} />
 
           <div className="md:mr-auto md:px-10 lg:px-0 lg:mr-0">

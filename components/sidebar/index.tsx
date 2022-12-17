@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { Product } from "../index";
 
 type SidebarProps = {
   showNav: boolean;
@@ -32,12 +33,12 @@ const Sidebar = ({ showNav }: SidebarProps) => {
     },
   };
 
-  const menu = [
-    { id: 1, title: "home", path: "/" },
-    { id: 2, title: "headphones", path: "/headphones" },
-    { id: 3, title: "speakers", path: "/speakers" },
-    { id: 4, title: "earphones", path: "/earphones" },
-  ];
+  // const menu = [
+  //   { id: 1, title: "home", path: "/" },
+  //   { id: 2, title: "headphones", path: "/headphones" },
+  //   { id: 3, title: "speakers", path: "/speakers" },
+  //   { id: 4, title: "earphones", path: "/earphones" },
+  // ];
 
   return (
     <AnimatePresence>
@@ -49,9 +50,35 @@ const Sidebar = ({ showNav }: SidebarProps) => {
             width: 0,
             transition: { delay: 0.7, duration: 0.3 },
           }}
-          className="lg:hidden sidebar"
+          className="lg:hidden sidebar h-[46.875rem] bg-white"
         >
-          <motion.ul
+          <motion.div
+            variants={variants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="mt-12 grid gap-16 lg:hidden mobile_nav"
+          >
+            <motion.div variants={itemVariants}>
+              <Product
+                imagePath="/images/image-header-mobile.png"
+                title="headphones"
+              />
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <Product
+                imagePath="/images/image-speaker-mobile.png"
+                title="speakers"
+              />
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <Product
+                imagePath="/images/image-earbud-mobile.png"
+                title="earphones"
+              />
+            </motion.div>
+          </motion.div>
+          {/* <motion.ul
             className="lg:hidden  mobile_nav"
             variants={variants}
             initial="closed"
@@ -73,7 +100,7 @@ const Sidebar = ({ showNav }: SidebarProps) => {
                 </Link>
               </motion.li>
             ))}
-          </motion.ul>
+          </motion.ul> */}
         </motion.div>
       )}
     </AnimatePresence>
