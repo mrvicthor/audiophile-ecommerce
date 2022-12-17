@@ -48,14 +48,14 @@ const Sidebar = ({ showNav }: SidebarProps) => {
             width: 0,
             transition: { delay: 0.7, duration: 0.3 },
           }}
-          className="lg:hidden sidebar h-[46.875rem] bg-white"
+          className="lg:hidden sidebar h-[46.875rem] bg-white md:h-[20rem]"
         >
           <motion.div
             variants={variants}
             initial="closed"
             animate="open"
             exit="closed"
-            className="mt-12 grid gap-16 md:grid-cols-3 md:items-center md:pt-20 lg:hidden mobile_nav"
+            className="mt-12 grid gap-16 md:grid-cols-3 md:items-center lg:hidden mobile_nav"
           >
             <motion.div variants={itemVariants}>
               <Product

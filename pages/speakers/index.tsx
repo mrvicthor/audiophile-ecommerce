@@ -22,9 +22,9 @@ const Speakers = () => {
               {width !== undefined && (
                 <Image
                   src={
-                    width <= 640
+                    width <= 768
                       ? speaker.categoryImage.mobile
-                      : width > 640 && width <= 768
+                      : width > 768 && width <= 1024
                       ? speaker.categoryImage.tablet
                       : speaker.categoryImage.desktop
                   }

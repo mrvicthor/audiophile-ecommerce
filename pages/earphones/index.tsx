@@ -22,9 +22,9 @@ const Earphones = () => {
                 {width !== undefined && (
                   <Image
                     src={
-                      width <= 640
+                      width <= 768
                         ? earphone.categoryImage.mobile
-                        : width > 640 && width <= 768
+                        : width > 768 && width <= 1024
                         ? earphone.categoryImage.tablet
                         : earphone.categoryImage.desktop
                     }
