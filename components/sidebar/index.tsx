@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { Product } from "../index";
 
 type SidebarProps = {
@@ -8,7 +7,6 @@ type SidebarProps = {
 };
 
 const Sidebar = ({ showNav }: SidebarProps) => {
-  const router = useRouter();
   const variants = {
     open: {
       transition: {
@@ -63,18 +61,24 @@ const Sidebar = ({ showNav }: SidebarProps) => {
               <Product
                 imagePath="/images/image-header-mobile.png"
                 title="headphones"
+                style="h-[9rem]"
+                content="h-[9rem]"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
               <Product
                 imagePath="/images/image-speaker-mobile.png"
                 title="speakers"
+                style="h-[9rem]"
+                content="h-[9rem]"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
               <Product
                 imagePath="/images/image-earbud-mobile.png"
                 title="earphones"
+                style="h-[9rem]"
+                content="h-[9rem]"
               />
             </motion.div>
           </motion.div>
