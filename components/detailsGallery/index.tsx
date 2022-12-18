@@ -14,9 +14,9 @@ const DetailsGallery = ({ product }: IProps) => {
           {width !== undefined && (
             <Image
               src={
-                width <= 640
+                width <= 768
                   ? product.gallery.first.mobile
-                  : width > 640 && width <= 768
+                  : width > 768 && width <= 1024
                   ? product.gallery.first.tablet
                   : product.gallery.first.desktop
               }

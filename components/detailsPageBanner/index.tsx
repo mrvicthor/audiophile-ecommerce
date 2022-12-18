@@ -30,9 +30,9 @@ const DetailsPageBanner = ({ product }: IProps) => {
         {width !== undefined && (
           <Image
             src={
-              width <= 640
+              width <= 768
                 ? product.image.mobile
-                : width > 640 && width <= 768
+                : width > 768 && width <= 1024
                 ? product.image.tablet
                 : product.image.desktop
             }
