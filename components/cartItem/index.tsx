@@ -1,3 +1,4 @@
+"use client";
 import { useCart } from "../../store";
 import Image from "next/image";
 import { Product } from "../../model";

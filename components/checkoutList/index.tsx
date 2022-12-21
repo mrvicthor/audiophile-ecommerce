@@ -1,4 +1,3 @@
-import { useCart } from "../../store";
 import Image from "next/image";
 import { Product } from "../../model";
 
@@ -7,7 +6,6 @@ interface CartProps {
 }
 
 const CheckoutItem = ({ item }: CartProps) => {
-  const { cart } = useCart();
   const removeLastString = (value: string) => {
     const strArr = value.split(" ");
     return strArr.length > 3
@@ -40,9 +38,7 @@ const CheckoutItem = ({ item }: CartProps) => {
         </p>
       </div>
       <div className="h-8 w-[6rem] flex items-center justify-end px-2">
-        <span className="uppercase text-[#000] opacity-50 ">
-          x{item.quantity}
-        </span>
+        <p className="uppercase text-[#000] opacity-50 ">x{item.quantity}</p>
       </div>
     </div>
   );
