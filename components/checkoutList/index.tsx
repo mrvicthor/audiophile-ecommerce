@@ -3,9 +3,10 @@ import { Product } from "../../model";
 
 interface CartProps {
   item: Product;
+  style?: string;
 }
 
-const CheckoutItem = ({ item }: CartProps) => {
+const CheckoutItem = ({ item, style }: CartProps) => {
   const removeLastString = (value: string) => {
     const strArr = value.split(" ");
     return strArr.length > 3
@@ -20,7 +21,9 @@ const CheckoutItem = ({ item }: CartProps) => {
   });
 
   return (
-    <div className="flex gap-2 justify-between items-center">
+    <div
+      className={`flex ${style ? style : "gap-2"} justify-between items-center`}
+    >
       <div className="h-16 w-16 relative rounded-md">
         <Image
           src={item.categoryImage.mobile}

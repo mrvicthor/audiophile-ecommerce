@@ -1,6 +1,12 @@
 "use client";
 
-import { Layout, Button, InputField, CheckoutItem } from "../../components";
+import {
+  Layout,
+  Button,
+  InputField,
+  CheckoutItem,
+  CheckoutModal,
+} from "../../components";
 import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FormInput } from "../../model";
@@ -10,7 +16,7 @@ import { useCart } from "../../store";
 const CheckoutPage = () => {
   const [ePayment, setEPayment] = useState<boolean>(false);
   const [hasMounted, setHasMounted] = useState<boolean>(false);
-  const [total, setTotal] = useState<number>(0);
+  const [showModal, setShowModal] = useState<boolean>(false);
   const router = useRouter();
   const { cart } = useCart();
 
@@ -20,21 +26,15 @@ const CheckoutPage = () => {
     maximumSignificantDigits: 4,
   });
 
+  const total = cart.items
+    .map((item) => item.quantity * item.price)
+    .reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0);
+
   const vat = total * 0.2;
 
   const grandTotal = total + vat + 50;
-
-  useEffect(() => {
-    setTotal(
-      (prevState) =>
-        prevState +
-        cart.items
-          .map((item) => item.quantity * item.price)
-          .reduce((accumulator, currentValue) => {
-            return accumulator + currentValue;
-          }, 0)
-    );
-  }, []);
 
   useEffect(() => {
     setHasMounted(true);
@@ -49,12 +49,18 @@ const CheckoutPage = () => {
     console.log(data);
   };
 
+  console.log(Object.keys(errors).length);
+
   if (!hasMounted) {
     return null;
   }
   return (
     <Layout>
       <section className="px-6 overflow-hidden bg-[#f2f2f2]">
+        {showModal && (
+          <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#979797] z-10 opacity-40" />
+        )}
+        {showModal && <CheckoutModal cart={cart} grandTotal={grandTotal} />}
         <div className="pt-4 lg:pt-[4.9375rem] lg:max-w-[69.364rem] lg:mx-auto">
           <Button
             title="go back"
@@ -78,7 +84,9 @@ const CheckoutPage = () => {
                     <div>
                       <InputField label="Name" register={register} required />
                       {errors.Name && (
-                        <p className="text-red-600">Name is required</p>
+                        <p className="text-red-600" role="alert">
+                          Name is required
+                        </p>
                       )}
                     </div>
                     <div>
@@ -89,7 +97,7 @@ const CheckoutPage = () => {
                       />
 
                       {errors["Email Address"] && (
-                        <p className="text-red-600">
+                        <p className="text-red-600" role="alert">
                           Email Address is required
                         </p>
                       )}
@@ -105,20 +113,19 @@ const CheckoutPage = () => {
                       </label>
                       <input
                         {...register("Phone Number", {
-                          pattern: {
-                            value:
-                              /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/,
-                            message: "Invalid phone number",
-                          },
+                          required: true,
+                          maxLength: 12,
                         })}
                         id="phoneNumber"
                         placeholder="Phone Number"
                         className="w-[100%] rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf]"
                       />
+                      {errors["Phone Number"] && (
+                        <p className="text-red-600" role="alert">
+                          Phone Number is required
+                        </p>
+                      )}
                     </div>
-                    <p className="text-red-600">
-                      {errors["Phone Number"]?.message}
-                    </p>
                   </div>
                   <p className="uppercase text-[#d87d4a] font-bold leading-[1.5625rem] tracking-[0.93px] text-[0.8125rem] mt-8">
                     shipping info
@@ -129,6 +136,11 @@ const CheckoutPage = () => {
                       register={register}
                       required
                     />
+                    {errors["Your Address"] && (
+                      <p className="text-red-600" role="alert">
+                        Your address is required
+                      </p>
+                    )}
                   </div>
                   <div className="grid gap-6 md:grid-cols-2">
                     <div>
@@ -137,13 +149,19 @@ const CheckoutPage = () => {
                         register={register}
                         required
                       />
-                      <p className="text-red-600">
-                        {errors["Zip Code"]?.message}
-                      </p>
+                      {errors["Zip Code"] && (
+                        <p className="text-red-600" role="alert">
+                          Zip Code is required
+                        </p>
+                      )}
                     </div>
                     <div>
                       <InputField label="City" register={register} required />
-                      <p className="text-red-600">{errors["City"]?.message}</p>
+                      {errors["City"] && (
+                        <p className="text-red-600" role="alert">
+                          City Name is required
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="grid gap-6 md:grid-cols-2">
@@ -153,9 +171,11 @@ const CheckoutPage = () => {
                         register={register}
                         required
                       />
-                      <p className="text-red-600">
-                        {errors["Country"]?.message}
-                      </p>
+                      {errors["Country"] && (
+                        <p className="text-red-600" role="alert">
+                          Country name is required
+                        </p>
+                      )}
                     </div>
                   </div>
                   <p className="uppercase text-[#d87d4a] font-bold leading-[1.5625rem] tracking-[0.93px] text-[0.8125rem] mt-8">
@@ -215,7 +235,7 @@ const CheckoutPage = () => {
               </div>
             </div>
 
-            <article className="bg-white py-6 px-6 rounded-md max-h-[38.25rem]">
+            <article className="bg-white py-6 px-6 rounded-md md:min-h-[38.25rem] lg:self-start">
               <h4 className="mt-2 uppercase text-lg font-bold leading-[1.5369rem] tracking-[1.29px]">
                 summary
               </h4>
@@ -261,10 +281,16 @@ const CheckoutPage = () => {
                 style="mt-6 bg-[#d87d4a] text-[#ffffff] w-full h-12 uppercase hover:opacity-50"
                 title="continue & pay"
                 handleClick={() => {
-                  if (!errors) {
-                    router.push("/");
-                  }
-                  console.log("paid");
+                  if (
+                    errors.Name ||
+                    errors.City ||
+                    errors["Email Address"] ||
+                    errors["Phone Number"] ||
+                    errors["Zip Code"] ||
+                    errors["Your Address"] ||
+                    errors.Country
+                  )
+                    setShowModal(true);
                 }}
               />
             </article>

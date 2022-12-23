@@ -21,6 +21,7 @@ import Cart from "./cart";
 import { InputField } from "./input";
 import CartItem from "./cartItem";
 import CheckoutItem from "./checkoutList";
+import CheckoutModal from "./checkoutModal";
 
 export {
   Gallery,
@@ -46,4 +47,5 @@ export {
   InputField,
   CartItem,
   CheckoutItem,
+  CheckoutModal,
 };
