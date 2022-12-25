@@ -36,7 +36,7 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
         You will receive an email confirmation shortly.
       </p>
       <div className="bg-[#f1f1f1] grid  rounded-md border md:gap-1 md:grid-cols-5 overflow-hidden">
-        <div className="px-8 md:col-span-1 max-h-[8.75rem]">
+        <div className="px-8 md:col-span-1 min-h-[8.75rem]">
           <div className="grid gap-3 py-8">
             <CheckoutItem
               item={firstItem}
