@@ -43,7 +43,7 @@ const CheckoutItem = ({ item, style, modalStyle }: CartProps) => {
           {toUSDollar.format(item.price)}
         </p>
       </div>
-      <div className="h-8 w-[6rem] flex items-center justify-end px-2 border border-yellow-400 min-w-[0.9375rem]">
+      <div className="h-8  flex items-center justify-end px-2 border border-yellow-400 min-w-[0.9375rem]">
         <p className="uppercase text-[#000] opacity-50 ">x{item.quantity}</p>
       </div>
     </div>
