@@ -18,7 +18,7 @@ const CheckoutPage = () => {
   const [hasMounted, setHasMounted] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const router = useRouter();
-  const { cart, emptyCart } = useCart();
+  const { cart } = useCart();
 
   const toUSDollar = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -50,7 +50,6 @@ const CheckoutPage = () => {
     if (Object.keys(errors).length === 0) {
       setShowModal(true);
       scrollUp();
-      emptyCart();
     }
   };
 

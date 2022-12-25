@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button, CheckoutItem } from "../index";
 import { useRouter } from "next/router";
 import { Cart } from "../../model";
+import { useCart } from "../../store";
 
 interface ModalProps {
   grandTotal: number;
@@ -10,7 +11,7 @@ interface ModalProps {
 
 const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
   const router = useRouter();
-  //   const { cart } = useCart();
+  const { emptyCart } = useCart();
   const [firstItem, ...rest] = cart.items;
   const toUSDollar = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -65,6 +66,7 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
         title="back to home"
         handleClick={() => {
           router.push("/");
+          emptyCart();
         }}
       />
     </div>
