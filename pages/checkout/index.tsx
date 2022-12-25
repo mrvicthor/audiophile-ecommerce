@@ -18,7 +18,7 @@ const CheckoutPage = () => {
   const [hasMounted, setHasMounted] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const router = useRouter();
-  const { cart } = useCart();
+  const { cart, emptyCart } = useCart();
 
   const toUSDollar = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -50,6 +50,7 @@ const CheckoutPage = () => {
     if (Object.keys(errors).length === 0) {
       setShowModal(true);
       scrollUp();
+      emptyCart();
     }
   };
 
@@ -82,7 +83,7 @@ const CheckoutPage = () => {
         )}
 
         {showModal && (
-          <div className="absolute top-[4rem] left-[50%] z-[60] -translate-x-[50%]  w-[90%] md:w-[33.75rem]">
+          <div className="absolute top-[2.5rem] left-[50%] z-[60] -translate-x-[50%]  w-[90%] md:w-[33.75rem]">
             <CheckoutModal cart={cart} grandTotal={grandTotal} />
           </div>
         )}
