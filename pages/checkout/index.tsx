@@ -16,7 +16,7 @@ import { useCart } from "../../store";
 const CheckoutPage = () => {
   const [ePayment, setEPayment] = useState<boolean>(false);
   const [hasMounted, setHasMounted] = useState<boolean>(false);
-  const [showModal, setShowModal] = useState<boolean>(true);
+  const [showModal, setShowModal] = useState<boolean>(false);
   const router = useRouter();
   const { cart } = useCart();
 
