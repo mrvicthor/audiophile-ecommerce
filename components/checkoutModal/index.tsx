@@ -18,8 +18,10 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
     maximumSignificantDigits: 4,
   });
 
+  console.log("order confirmed...");
+
   return (
-    <div className="bg-white px-8 py-6 absolute top-[7rem] left-[50%] z-[60] -translate-x-[50%] w-[90%] rounded-md md:w-[33.75rem] md:px-12">
+    <div className="bg-white px-8 py-6  rounded-md md:w-[33.75rem] md:px-12">
       <div className="relative h-16 w-16 mt-8">
         <Image
           src="/images/icon-order-confirmation.svg"

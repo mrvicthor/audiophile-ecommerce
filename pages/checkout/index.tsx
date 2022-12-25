@@ -49,7 +49,15 @@ const CheckoutPage = () => {
     console.log(data);
     if (Object.keys(errors).length === 0) {
       setShowModal(true);
+      scrollUp();
     }
+  };
+
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {
@@ -68,11 +76,16 @@ const CheckoutPage = () => {
   }
   return (
     <Layout>
-      <section className="px-6 overflow-hidden bg-[#f2f2f2]">
+      <section className="px-6 overflow-hidden bg-[#f2f2f2] relative">
         {showModal && (
           <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#979797] z-50 opacity-40" />
         )}
-        {showModal && <CheckoutModal cart={cart} grandTotal={grandTotal} />}
+
+        {showModal && (
+          <div className="absolute top-[4rem] left-[50%] z-[60] -translate-x-[50%]  w-[90%] md:w-[33.75rem]">
+            <CheckoutModal cart={cart} grandTotal={grandTotal} />
+          </div>
+        )}
         <div className="pt-4 lg:pt-[4.9375rem] lg:max-w-[69.364rem] lg:mx-auto">
           <Button
             title="go back"
