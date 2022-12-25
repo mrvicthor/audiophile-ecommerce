@@ -35,7 +35,7 @@ const CheckoutItem = ({ item, style, modalStyle }: CartProps) => {
           className="object-cover rounded-md"
         />
       </div>
-      <div className="flex-1 min-w-[4.6875rem] border border-red-500">
+      <div className="flex-1 min-w-[5rem] border border-red-500">
         <h4 className="font-bold leading-[1.5625rem] text-[#000000]">
           {removeLastString(item.name)}
         </h4>
