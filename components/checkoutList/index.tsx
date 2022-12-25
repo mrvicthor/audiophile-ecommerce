@@ -4,9 +4,10 @@ import { Product } from "../../model";
 interface CartProps {
   item: Product;
   style?: string;
+  modalStyle?: string;
 }
 
-const CheckoutItem = ({ item, style }: CartProps) => {
+const CheckoutItem = ({ item, style, modalStyle }: CartProps) => {
   const removeLastString = (value: string) => {
     const strArr = value.split(" ");
     return strArr.length > 3
@@ -21,10 +22,12 @@ const CheckoutItem = ({ item, style }: CartProps) => {
   });
 
   return (
-    <div
-      className={`flex ${style ? style : "gap-2"} justify-between items-center`}
-    >
-      <div className="h-16 w-16 relative rounded-md">
+    <div className={`flex ${style ? style : "gap-2"}`}>
+      <div
+        className={`${
+          modalStyle ? modalStyle : "h-16 w-16"
+        }  relative rounded-md`}
+      >
         <Image
           src={item.categoryImage.mobile}
           fill
@@ -32,8 +35,8 @@ const CheckoutItem = ({ item, style }: CartProps) => {
           className="object-cover rounded-md"
         />
       </div>
-      <div className="w-[4.75rem] flex-1">
-        <h4 className="text-bold leading-[1.5625rem] text-[#000000]">
+      <div className=" flex-1">
+        <h4 className="font-bold leading-[1.5625rem] text-[#000000]">
           {removeLastString(item.name)}
         </h4>
         <p className="text-sm font-bold text-[#000000] opacity-50">

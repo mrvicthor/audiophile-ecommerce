@@ -16,7 +16,7 @@ import { useCart } from "../../store";
 const CheckoutPage = () => {
   const [ePayment, setEPayment] = useState<boolean>(false);
   const [hasMounted, setHasMounted] = useState<boolean>(false);
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(true);
   const router = useRouter();
   const { cart } = useCart();
 
@@ -47,7 +47,19 @@ const CheckoutPage = () => {
 
   const onSubmit: SubmitHandler<FormInput> = (data) => {
     console.log(data);
+    if (Object.keys(errors).length === 0) {
+      setShowModal(true);
+    }
   };
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showModal]);
 
   console.log(Object.keys(errors).length);
 
@@ -58,7 +70,7 @@ const CheckoutPage = () => {
     <Layout>
       <section className="px-6 overflow-hidden bg-[#f2f2f2]">
         {showModal && (
-          <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#979797] z-10 opacity-40" />
+          <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#979797] z-50 opacity-40" />
         )}
         {showModal && <CheckoutModal cart={cart} grandTotal={grandTotal} />}
         <div className="pt-4 lg:pt-[4.9375rem] lg:max-w-[69.364rem] lg:mx-auto">
@@ -281,16 +293,9 @@ const CheckoutPage = () => {
                 style="mt-6 bg-[#d87d4a] text-[#ffffff] w-full h-12 uppercase hover:opacity-50"
                 title="continue & pay"
                 handleClick={() => {
-                  if (
-                    errors.Name ||
-                    errors.City ||
-                    errors["Email Address"] ||
-                    errors["Phone Number"] ||
-                    errors["Zip Code"] ||
-                    errors["Your Address"] ||
-                    errors.Country
-                  )
-                    setShowModal(true);
+                  if (Object.keys(errors).length > 0) {
+                    return;
+                  }
                 }}
               />
             </article>

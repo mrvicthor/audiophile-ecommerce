@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button, CheckoutItem } from "../index";
 import { useRouter } from "next/router";
-import { useCart } from "../../store";
 import { Cart } from "../../model";
 
 interface ModalProps {
@@ -18,8 +17,9 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
     currency: "USD",
     maximumSignificantDigits: 4,
   });
+
   return (
-    <div className="bg-white px-6 py-6 absolute top-[14rem] left-[50%] z-[10000] -translate-x-[50%] w-[90%] rounded-md min-h-[37.5rem] md:w-[33.75rem] ">
+    <div className="bg-white px-8 py-6 absolute top-[14rem] md:top-[7rem] left-[50%] z-[60] -translate-x-[50%] w-[90%] rounded-md md:w-[33.75rem] md:px-12">
       <div className="relative h-16 w-16 mt-8">
         <Image
           src="/images/icon-order-confirmation.svg"
@@ -32,18 +32,24 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
         thank you <br />
         for your order
       </h1>
-      <p className="mt-4 text-[0.9375rem] ">
+      <p className="mt-4 mb-8 text-[0.9375rem] ">
         You will receive an email confirmation shortly.
       </p>
-      <div className="h-[14.5rem] rounded-lg mt-8 md:flex w-[100%] md:h-[10.75rem] overflow-hidden">
-        <div className="px-6 bg-[#f1f1f1] flex items-center flex-col gap-3 py-8 rounded-t-lg">
-          <CheckoutItem item={firstItem} style="gap-4" />
-          <div className="bg-[#000] opacity-[0.08] h-[2px] w-full" />
-          <p className="font-bold text-[0.75rem] opacity-50">
-            and {rest.length} {rest.length > 1 ? "items" : "item"}
-          </p>
+      <div className="bg-[#f1f1f1] grid  rounded-md border md:gap-1 md:grid-cols-5 overflow-hidden">
+        <div className="px-8 md:col-span-1 max-h-[8.75rem]">
+          <div className="grid gap-3 py-8">
+            <CheckoutItem
+              item={firstItem}
+              style="gap-2"
+              modalStyle="h-[3.125rem] w-[3.125rem]"
+            />
+            <div className="bg-[#000] opacity-[0.08] h-[2px]" />
+            <p className="font-bold text-[0.75rem] opacity-50 text-center">
+              and {rest.length} {rest.length > 1 ? "items" : "item"}
+            </p>
+          </div>
         </div>
-        <div className="bg-[#000] px-6 pb-[1.1875rem] pt-[0.9375rem] md:w-[12.375rem] md:flex md:justify-center md:flex-col">
+        <div className="bg-[#000] px-6 pb-[1.1875rem] pt-[0.9375rem] md:flex md:justify-center md:flex-col md:col-span-4 md:col-start-4">
           <h4 className="font-medium text-[0.9375rem] text-[#fff] opacity-50 uppercase mt-[0.9375rem]">
             grand total
           </h4>
@@ -53,9 +59,11 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
         </div>
       </div>
       <Button
-        style="uppercase bg-[#d87d4a] mt-[4rem] w-full h-12 hover:opacity-50 text-[#fff] md:mt-[3rem]"
-        handleClick={() => router.push("/")}
+        style="mt-6 mb-6 bg-[#d87d4a] text-[#ffffff] w-full h-12 uppercase hover:opacity-50"
         title="back to home"
+        handleClick={() => {
+          router.push("/");
+        }}
       />
     </div>
   );
