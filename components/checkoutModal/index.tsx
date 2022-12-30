@@ -65,8 +65,8 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
         style="mt-6 mb-6 bg-[#d87d4a] text-[#ffffff] w-full h-12 uppercase hover:opacity-50"
         title="back to home"
         handleClick={() => {
-          router.push("/");
           emptyCart();
+          router.push("/");
         }}
       />
     </div>

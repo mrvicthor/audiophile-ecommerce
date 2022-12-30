@@ -4,7 +4,7 @@ const Gallery = () => {
       <div className="h-[43.625rem] md:h-[39.5625rem] lg:h-[36.75rem] lg:max-w-[69.364rem] lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-[7.8125rem] overflow-hidden rounded">
         <div className="h-[18.75rem] w-full bg-[url('/images/image-best-gear-mobile.jpg')] bg-cover bg-no-repeat bg-center rounded md:bg-[url('/images/image-best-gear.jpg')] md:w-full lg:bg-[url('/images/image-best-gear-desktop.jpg')] lg:w-[33.75rem] lg:order-2 lg:h-full" />
         <div className="mt-[2.5rem] md:max-w-[35.8125rem] md:mx-auto lg:max-w-[27.8125rem] lg:self-center">
-          <h4 className="font-bold text-[1.74rem] leading-[2.39rem] tracking-[1px] uppercase text-center md:leading-[2.75rem] lg:text-left">
+          <h4 className="font-bold text-[1.74rem] leading-[2.39rem] tracking-[1px] uppercase text-center md:leading-[2.75rem] md:text-[2.5rem] lg:text-left">
             Bringing you the <br className="md:hidden lg:block" />
             <span className="text-[#d87d4a]">best</span>{" "}
             <br className="hidden md:block lg:hidden" />
