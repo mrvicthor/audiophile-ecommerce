@@ -29,22 +29,25 @@ const CheckoutItem = ({ item, style, modalStyle }: CartProps) => {
         }  relative rounded-md`}
       >
         <Image
-          src={item.categoryImage.mobile}
+          src={item?.categoryImage.mobile}
           fill
-          alt={item.name}
+          sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+          alt={item?.name}
           className="object-cover rounded-md"
         />
       </div>
       <div className="flex-1">
         <h4 className="font-bold leading-[1.5625rem] text-[#000000]">
-          {removeLastString(item.name)}
+          {removeLastString(item?.name)}
         </h4>
         <p className="text-sm font-bold text-[#000000] opacity-50">
-          {toUSDollar.format(item.price)}
+          {toUSDollar.format(item?.price)}
         </p>
       </div>
-      <div className="h-8  flex items-center justify-end px-2 min-w-[0.9375rem]">
-        <p className="uppercase text-[#000] opacity-50 ">x{item.quantity}</p>
+      <div className="h-8  flex items-center justify-end px-2 max-w-[0.9375rem]">
+        <p className="uppercase text-[#000] opacity-50 ">x{item?.quantity}</p>
       </div>
     </div>
   );

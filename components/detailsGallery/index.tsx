@@ -20,6 +20,9 @@ const DetailsGallery = ({ product }: IProps) => {
                   ? product.gallery.first.tablet
                   : product.gallery.first.desktop
               }
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
               fill
               alt={product.slug}
               className="object-cover rounded-md"

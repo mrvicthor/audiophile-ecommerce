@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Layout,
   Button,
@@ -12,6 +10,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { FormInput } from "../../model";
 import { useState, useEffect } from "react";
 import { useCart } from "../../store";
+import Image from "next/image";
 
 const CheckoutPage = () => {
   const [ePayment, setEPayment] = useState<boolean>(false);
@@ -82,7 +81,7 @@ const CheckoutPage = () => {
         )}
 
         {showModal && (
-          <div className="absolute top-[2.5rem] left-[50%] z-[60] -translate-x-[50%]  w-[90%] md:w-[33.75rem]">
+          <div className="absolute top-[0.5rem] left-[50%] z-[60] -translate-x-[50%]  w-[90%] md:w-[33.75rem]">
             <CheckoutModal cart={cart} grandTotal={grandTotal} />
           </div>
         )}
@@ -90,13 +89,13 @@ const CheckoutPage = () => {
           <Button
             title="go back"
             handleClick={() => router.back()}
-            style="capitalize text-[0.9375rem] font-medium text-[#000000] leading-[1.5625rem] opacity-50"
+            style="capitalize text-[0.9375rem] font-medium text-[#000000] leading-[1.5625rem] opacity-50 hover:text-[#d87d4a]"
           />
           <form
-            className="mt-6  mb-[6.0625rem] flex flex-col gap-8 lg:mt-[2.375rem] lg:max-w-[69.364rem] lg:mx-auto lg:flex-row"
+            className="mt-6 mb-[6.0625rem] grid gap-8 lg:mt-[2.375rem] lg:max-w-[69.364rem] lg:mx-auto lg:grid-cols-3"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <div className=" rounded-md py-6 px-6 bg-[#ffffff] flex-1">
+            <div className=" rounded-md py-6 px-6 bg-[#ffffff] lg:col-span-2">
               <h1 className="uppercase font-bold text-2xl leading-[2.39rem] tracking-[1px] text-[#000000]">
                 checkout
               </h1>
@@ -143,7 +142,7 @@ const CheckoutPage = () => {
                         })}
                         id="phoneNumber"
                         placeholder="Phone Number"
-                        className="w-[100%] rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf]"
+                        className="w-[100%] rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf] hover:border-[#d87d4a] cursor-pointer"
                       />
                       {errors["Phone Number"] && (
                         <p className="text-red-600" role="alert">
@@ -211,7 +210,11 @@ const CheckoutPage = () => {
                       payment method
                     </label>
                     <div>
-                      <label className="radio__container w-[100%] font-bold  block rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf] relative pl-[4rem] pt-4 mb-4 cursor-pointer text-sm">
+                      <label
+                        className={`${
+                          ePayment ? "border-[#d87d4a]" : "border-[#cfcfcf]"
+                        } radio__container w-[100%] font-bold  block rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf] hover:border-[#d87d4a] relative pl-[4rem] pt-4 mb-4 cursor-pointer text-sm`}
+                      >
                         <input
                           type="radio"
                           checked={ePayment}
@@ -220,7 +223,11 @@ const CheckoutPage = () => {
                         e-Money
                         <span className="checkmark" />
                       </label>
-                      <label className="radio__container w-[100%] font-bold block rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf] relative pl-[4rem] pt-4 mb-4 cursor-pointer text-sm">
+                      <label
+                        className={`${
+                          ePayment ? "border-[#cfcfcf]" : "border-[#d87d4a]"
+                        } radio__container w-[100%] font-bold block rounded-md py-2 px-6 h-[3.5rem] border  hover:border-[#d87d4a] relative pl-[4rem] pt-4 mb-4 cursor-pointer text-sm`}
+                      >
                         <input
                           type="radio"
                           checked={ePayment === false ? true : false}
@@ -232,7 +239,7 @@ const CheckoutPage = () => {
                     </div>
                   </div>
 
-                  {ePayment == true && (
+                  {ePayment == true ? (
                     <div className="grid gap-4 md:grid-cols-2">
                       <div>
                         <InputField
@@ -255,12 +262,29 @@ const CheckoutPage = () => {
                         </p>
                       </div>
                     </div>
+                  ) : (
+                    <div className="flex gap-8">
+                      <div className="relative h-[4rem] w-[8rem]">
+                        <Image
+                          src="/images/icon-cash-on-delivery.svg"
+                          alt="cash on delivery"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <p className="font-medium text-[0.9375rem] text-[#000]">
+                        The ‘Cash on Delivery’ option enables you to pay in cash
+                        when our delivery courier arrives at your residence.
+                        Just make sure your address is correct so that your
+                        order will not be cancelled.
+                      </p>
+                    </div>
                   )}
                 </div>
               </div>
             </div>
 
-            <article className="bg-white py-6 px-6 rounded-md md:min-h-[38.25rem] lg:self-start">
+            <article className="bg-white py-6 px-6 rounded-md md:max-h-[38.25rem] lg:self-start">
               <h4 className="mt-2 uppercase text-lg font-bold leading-[1.5369rem] tracking-[1.29px]">
                 summary
               </h4>

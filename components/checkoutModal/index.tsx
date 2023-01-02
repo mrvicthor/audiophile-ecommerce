@@ -3,6 +3,7 @@ import { Button, CheckoutItem } from "../index";
 import { useRouter } from "next/router";
 import { Cart } from "../../model";
 import { useCart } from "../../store";
+import { useEffect } from "react";
 
 interface ModalProps {
   grandTotal: number;
@@ -19,7 +20,9 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
     maximumSignificantDigits: 4,
   });
 
-  console.log("order confirmed...");
+  useEffect(() => {
+    console.log("order confirmed...");
+  }, []);
 
   return (
     <div className="bg-white px-8 py-6  rounded-md md:w-[33.75rem] md:px-12">
@@ -39,7 +42,7 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
         You will receive an email confirmation shortly.
       </p>
       <div className="bg-[#f1f1f1] grid  rounded-md border md:gap-1 md:grid-cols-5 overflow-hidden">
-        <div className="px-8 md:col-span-1">
+        <div className="px-8 md:col-span-3">
           <div className="grid gap-3 py-8">
             <CheckoutItem
               item={firstItem}

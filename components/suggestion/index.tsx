@@ -29,6 +29,9 @@ const Suggestion = ({ product }: SuggestProps) => {
                     : product.others[0].image.desktop
                 }
                 fill
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
                 alt={product.others[0].slug}
                 className="object-cover rounded-md"
               />

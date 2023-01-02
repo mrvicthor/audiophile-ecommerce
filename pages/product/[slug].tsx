@@ -10,12 +10,21 @@ import {
 } from "../../components";
 import { data } from "../../data";
 import { Product } from "../../model";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
+import {
+  increaseOrderQuantityByOne,
+  decreaseOrderQuantityByOne,
+} from "../../features/products/productsSlice";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 interface DetailsPageProps {
   product: Product;
 }
 
+// const data = useAppSelector((state) => state.products.products);
+console.log(data);
 const DetailsPage = ({ product }: DetailsPageProps) => {
   const router = useRouter();
 

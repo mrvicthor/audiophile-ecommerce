@@ -20,7 +20,7 @@ export const InputField = ({ label, register, required }: InputProps) => {
         {...register(label, { required })}
         id={label}
         placeholder={label}
-        className="w-[100%] rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf]"
+        className="w-[100%] rounded-md py-2 px-6 h-[3.5rem] border border-[#cfcfcf] hover:border-[#d87d4a] cursor-pointer"
       />
     </div>
   );

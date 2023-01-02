@@ -3,6 +3,10 @@ import Image from "next/image";
 import { Button } from "../";
 import { useWindowSize } from "./../../hooks/use-Window-Size";
 import { useCart } from "../../store";
+import { useAppDispatch } from "../../app/hooks";
+import { addToCart } from "../../features/cart/cartSlice";
+import { useState, useEffect } from "react";
+import { increaseQuantityByOne } from "../../data";
 
 interface IProps {
   product: Product;
@@ -10,13 +14,14 @@ interface IProps {
 
 const DetailsPageBanner = ({ product }: IProps) => {
   const { addOrder, cart } = useCart();
+  const dispatch = useAppDispatch();
+
   const total = cart.items
     .map((c) => c.quantity * c.price)
     .reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
     }, 0);
 
-  console.log(cart, total);
   const { width } = useWindowSize();
   const toUSDollar = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -24,6 +29,7 @@ const DetailsPageBanner = ({ product }: IProps) => {
     maximumSignificantDigits: 4,
   });
   const strArr = product.name.split(" ");
+
   return (
     <div className="mt-[1.5rem] grid gap-8 md:h-[30rem] md:grid-cols-2 rounded-md lg:mt-[3.5rem] lg:h-[35rem] lg:gap-[7.8125rem]">
       <div className="relative h-[20.4375rem] w-full md:h-[30rem] rounded-md md:w-[17.5625rem] lg:h-[35rem] lg:w-[33.75rem]">
@@ -37,6 +43,9 @@ const DetailsPageBanner = ({ product }: IProps) => {
                 : product.image.desktop
             }
             fill
+            sizes="(max-width: 768px) 100vw,
+            (max-width: 1200px) 50vw,
+            33vw"
             alt={product.name}
             className="object-cover rounded-md"
           />
@@ -61,13 +70,27 @@ const DetailsPageBanner = ({ product }: IProps) => {
           {toUSDollar.format(product.price)}
         </p>
         <div className="grid grid-cols-2 gap-4 mt-[0.4375rem] lg:w-[18.5rem]">
-          <button className="bg-[#f1f1f1] h-[3rem]  text-[#000000] uppercase lg:w-[7.5rem]">
-            {product.quantity}
-          </button>
+          <div className="w-[6rem] h-[3rem]  text-[#000000] uppercase bg-[#f1f1f1] flex justify-between items-center px-4 lg:w-[7.5rem]">
+            <button
+              onClick={() => console.log("clicked")}
+              disabled={product.quantity <= 1 ? true : false}
+              className="cursor-pointer hover:text-[#d87d4a]"
+            >
+              -
+            </button>
+            <span>{product.quantity}</span>
+            <button
+              onClick={() => console.log("clicked")}
+              className="cursor-pointer hover:text-[#d87d4a]"
+            >
+              +
+            </button>
+          </div>
+
           <Button
             title="add to cart"
             style="bg-[#d87d4a] h-[3rem] text-white hover:bg-[#fbaf85] uppercase lg:w-[10rem]"
-            handleClick={() => addOrder(product)}
+            handleClick={() => dispatch(addToCart(product))}
           />
         </div>
       </article>

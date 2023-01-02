@@ -1,5 +1,8 @@
-"use client";
-import { useCart } from "../../store";
+import {
+  increaseQuantity,
+  decreaseQuantity,
+} from "../../features/cart/cartSlice";
+import { useAppDispatch } from "../../app/hooks";
 import Image from "next/image";
 import { Product } from "../../model";
 
@@ -8,7 +11,8 @@ interface CartProps {
 }
 
 const CartItem = ({ item }: CartProps) => {
-  const { increaseQuantity, decreaseQuantity } = useCart();
+  const dispatch = useAppDispatch();
+
   const removeLastString = (value: string) => {
     const strArr = value.split(" ");
     return strArr.length > 3
@@ -42,16 +46,16 @@ const CartItem = ({ item }: CartProps) => {
       </div>
       <div className="h-8 w-[6rem] bg-[#f1f1f1] flex justify-between items-center px-4 ">
         <button
-          onClick={() => decreaseQuantity(item.slug)}
+          onClick={() => dispatch(decreaseQuantity(item.slug))}
           disabled={item.quantity <= 1 ? true : false}
-          className="cursor-pointer"
+          className="cursor-pointer hover:text-[#d87d4a]"
         >
           -
         </button>
         <span>{item.quantity}</span>
         <button
-          onClick={() => increaseQuantity(item.slug)}
-          className="cursor-pointer"
+          onClick={() => dispatch(increaseQuantity(item.slug))}
+          className="cursor-pointer hover:text-[#d87d4a]"
         >
           +
         </button>

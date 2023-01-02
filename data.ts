@@ -567,6 +567,13 @@ const getEarphones = () => {
   return result;
 };
 
+export const increaseQuantityByOne = (slug: string) => {
+  const addOne = data.map((c) =>
+    c.slug === slug ? { ...c, quantity: c.quantity + 1 } : c
+  );
+  return addOne;
+};
+
 export const speakers = getSpeakers();
 export const headphones = getHeadPhones();
 export const earphones = getEarphones();
