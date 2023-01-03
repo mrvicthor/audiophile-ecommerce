@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Product } from "../../model";
 import { data } from "../../data";
-import { RootState } from "../../app/store";
+import { RootState } from "../../redux/store";
 
 interface ProductState {
   products: Product[];

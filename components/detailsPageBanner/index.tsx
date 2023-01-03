@@ -2,33 +2,36 @@ import { Product } from "../../model";
 import Image from "next/image";
 import { Button } from "../";
 import { useWindowSize } from "./../../hooks/use-Window-Size";
-import { useCart } from "../../store";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../redux/hooks";
+import { convertCurrency } from "../../helpers/toUsDollar";
 import { addToCart } from "../../features/cart/cartSlice";
+import { Id } from "react-toastify/dist/types";
 import { useState, useEffect } from "react";
-import { increaseQuantityByOne } from "../../data";
 
 interface IProps {
+  handleNotification: () => Id;
   product: Product;
 }
 
-const DetailsPageBanner = ({ product }: IProps) => {
-  const { addOrder, cart } = useCart();
+const DetailsPageBanner = ({ handleNotification, product }: IProps) => {
   const dispatch = useAppDispatch();
-
-  const total = cart.items
-    .map((c) => c.quantity * c.price)
-    .reduce((accumulator, currentValue) => {
-      return accumulator + currentValue;
-    }, 0);
-
+  const [detailProduct, setDetailProduct] = useState(product);
   const { width } = useWindowSize();
-  const toUSDollar = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumSignificantDigits: 4,
-  });
+
   const strArr = product.name.split(" ");
+  const increaseProductCount = () => {
+    setDetailProduct((prevState) => ({
+      ...prevState,
+      quantity: prevState.quantity + 1,
+    }));
+  };
+
+  const decreaseProductCount = () => {
+    setDetailProduct((prevState) => ({
+      ...prevState,
+      quantity: prevState.quantity - 1,
+    }));
+  };
 
   return (
     <div className="mt-[1.5rem] grid gap-8 md:h-[30rem] md:grid-cols-2 rounded-md lg:mt-[3.5rem] lg:h-[35rem] lg:gap-[7.8125rem]">
@@ -67,20 +70,20 @@ const DetailsPageBanner = ({ product }: IProps) => {
           {product.description}
         </p>
         <p className="text-[1.125rem] leading-[1.5369rem] tracking-[1.29px] font-bold text-[#000000] uppercase">
-          {toUSDollar.format(product.price)}
+          {convertCurrency(product.price)}
         </p>
         <div className="grid grid-cols-2 gap-4 mt-[0.4375rem] lg:w-[18.5rem]">
           <div className="w-[6rem] h-[3rem]  text-[#000000] uppercase bg-[#f1f1f1] flex justify-between items-center px-4 lg:w-[7.5rem]">
             <button
-              onClick={() => console.log("clicked")}
-              disabled={product.quantity <= 1 ? true : false}
+              onClick={() => decreaseProductCount()}
+              disabled={detailProduct.quantity <= 1 ? true : false}
               className="cursor-pointer hover:text-[#d87d4a]"
             >
               -
             </button>
-            <span>{product.quantity}</span>
+            <span>{detailProduct.quantity}</span>
             <button
-              onClick={() => console.log("clicked")}
+              onClick={() => increaseProductCount()}
               className="cursor-pointer hover:text-[#d87d4a]"
             >
               +
@@ -90,7 +93,10 @@ const DetailsPageBanner = ({ product }: IProps) => {
           <Button
             title="add to cart"
             style="bg-[#d87d4a] h-[3rem] text-white hover:bg-[#fbaf85] uppercase lg:w-[10rem]"
-            handleClick={() => dispatch(addToCart(product))}
+            handleClick={() => {
+              handleNotification();
+              dispatch(addToCart(product));
+            }}
           />
         </div>
       </article>

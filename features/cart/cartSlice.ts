@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Product } from "../../model";
-import { RootState } from "../../app/store";
+import { RootState } from "../../redux/store";
 
 type cartState = {
   cart: Product[];

@@ -7,9 +7,10 @@ import {
 } from "../../components";
 import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { convertCurrency } from "../../helpers/toUsDollar";
 import { FormInput } from "../../model";
 import { useState, useEffect } from "react";
-import { useCart } from "../../store";
+import { useAppSelector } from "../../redux/hooks";
 import Image from "next/image";
 
 const CheckoutPage = () => {
@@ -17,15 +18,9 @@ const CheckoutPage = () => {
   const [hasMounted, setHasMounted] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const router = useRouter();
-  const { cart } = useCart();
+  const cart = useAppSelector((state) => state.cart.cart);
 
-  const toUSDollar = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumSignificantDigits: 4,
-  });
-
-  const total = cart.items
+  const total = cart
     .map((item) => item.quantity * item.price)
     .reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
@@ -289,7 +284,7 @@ const CheckoutPage = () => {
                 summary
               </h4>
               <div className="mt-8 flex flex-col gap-6 overflow-y-scroll max-h-[15rem] cart__wrapper">
-                {cart.items.map((item) => (
+                {cart.map((item) => (
                   <CheckoutItem item={item} key={item.id} />
                 ))}
               </div>
@@ -298,7 +293,7 @@ const CheckoutPage = () => {
                   total
                 </p>
                 <p className="text-[#000000] text-lg uppercase font-bold">
-                  {toUSDollar.format(total)}
+                  {convertCurrency(total)}
                 </p>
               </div>
               <div className="mt-2 flex justify-between">
@@ -306,7 +301,7 @@ const CheckoutPage = () => {
                   shipping
                 </p>
                 <p className="text-[#000000] text-lg uppercase font-bold">
-                  {toUSDollar.format(50)}
+                  {convertCurrency(50)}
                 </p>
               </div>
               <div className="mt-2 flex justify-between">
@@ -314,7 +309,7 @@ const CheckoutPage = () => {
                   vat (included)
                 </p>
                 <p className="text-[#000000] text-lg uppercase font-bold">
-                  {toUSDollar.format(vat)}
+                  {convertCurrency(vat)}
                 </p>
               </div>
               <div className="mt-8 flex justify-between">
@@ -322,7 +317,7 @@ const CheckoutPage = () => {
                   grand total
                 </p>
                 <p className="text-[#d87d4a] text-lg uppercase font-bold">
-                  {toUSDollar.format(grandTotal)}
+                  {convertCurrency(grandTotal)}
                 </p>
               </div>
 

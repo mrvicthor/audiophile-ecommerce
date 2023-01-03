@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { Product } from "../../model";
+import { convertCurrency } from "../../helpers/toUsDollar";
+import { removeLastString } from "../../helpers/removeLastString";
 
 interface CartProps {
   item: Product;
@@ -8,19 +10,6 @@ interface CartProps {
 }
 
 const CheckoutItem = ({ item, style, modalStyle }: CartProps) => {
-  const removeLastString = (value: string) => {
-    const strArr = value.split(" ");
-    return strArr.length > 3
-      ? `${strArr[0]} ${strArr[1]} ${strArr[2]}`
-      : `${strArr[0]}`;
-  };
-
-  const toUSDollar = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumSignificantDigits: 4,
-  });
-
   return (
     <div className={`flex ${style ? style : "gap-2"}`}>
       <div
@@ -43,7 +32,7 @@ const CheckoutItem = ({ item, style, modalStyle }: CartProps) => {
           {removeLastString(item?.name)}
         </h4>
         <p className="text-sm font-bold text-[#000000] opacity-50">
-          {toUSDollar.format(item?.price)}
+          {convertCurrency(item?.price)}
         </p>
       </div>
       <div className="h-8  flex items-center justify-end px-2 max-w-[0.9375rem]">

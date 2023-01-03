@@ -1,19 +1,15 @@
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Button, CartItem } from "../index";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { emptyCart } from "../../features/cart/cartSlice";
+import { convertCurrency } from "../../helpers/toUsDollar";
 
 const Cart = () => {
   const router = useRouter();
 
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart.cart);
-  const toUSDollar = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumSignificantDigits: 4,
-  });
 
   const totalCost = cart
     .map((item) => item.quantity * item.price)
@@ -64,7 +60,7 @@ const Cart = () => {
                   total
                 </p>
                 <p className="text-[#000000] text-lg uppercase font-bold">
-                  {toUSDollar.format(totalCost)}
+                  {convertCurrency(totalCost)}
                 </p>
               </div>
               <Button

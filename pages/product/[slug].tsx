@@ -10,12 +10,8 @@ import {
 } from "../../components";
 import { data } from "../../data";
 import { Product } from "../../model";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { RootState } from "../../app/store";
-import {
-  increaseOrderQuantityByOne,
-  decreaseOrderQuantityByOne,
-} from "../../features/products/productsSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
@@ -23,13 +19,14 @@ interface DetailsPageProps {
   product: Product;
 }
 
-// const data = useAppSelector((state) => state.products.products);
-console.log(data);
 const DetailsPage = ({ product }: DetailsPageProps) => {
   const router = useRouter();
 
+  const notify = () => toast("Item added to cart");
+
   return (
     <Layout>
+      <ToastContainer />
       <section className="px-6 overflow-hidden">
         <div className="pt-4 lg:pt-[4.9375rem] lg:max-w-[69.364rem] lg:mx-auto">
           <Button
@@ -37,7 +34,7 @@ const DetailsPage = ({ product }: DetailsPageProps) => {
             handleClick={() => router.back()}
             style="capitalize text-[0.9375rem] font-medium text-[#000000] leading-[1.5625rem] opacity-50"
           />
-          <DetailsPageBanner product={product} />
+          <DetailsPageBanner product={product} handleNotification={notify} />
           <Features
             features={product.features}
             featuresCont={product.featuresCont}

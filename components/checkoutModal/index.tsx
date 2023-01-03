@@ -1,28 +1,20 @@
 import Image from "next/image";
 import { Button, CheckoutItem } from "../index";
 import { useRouter } from "next/router";
-import { Cart } from "../../model";
-import { useCart } from "../../store";
-import { useEffect } from "react";
+import { Product } from "../../model";
+import { emptyCart } from "../../features/cart/cartSlice";
+import { useAppDispatch } from "../../redux/hooks";
+import { convertCurrency } from "../../helpers/toUsDollar";
 
 interface ModalProps {
   grandTotal: number;
-  cart: Cart;
+  cart: Product[];
 }
 
 const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
   const router = useRouter();
-  const { emptyCart } = useCart();
-  const [firstItem, ...rest] = cart.items;
-  const toUSDollar = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumSignificantDigits: 4,
-  });
-
-  useEffect(() => {
-    console.log("order confirmed...");
-  }, []);
+  const dispatch = useAppDispatch();
+  const [firstItem, ...rest] = cart;
 
   return (
     <div className="bg-white px-8 py-6  rounded-md md:w-[33.75rem] md:px-12">
@@ -60,7 +52,7 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
             grand total
           </h4>
           <p className="text-[#fff] mt-2 font-bold text-lg uppercase">
-            {toUSDollar.format(grandTotal)}
+            {convertCurrency(grandTotal)}
           </p>
         </div>
       </div>
@@ -68,7 +60,7 @@ const CheckoutModal = ({ cart, grandTotal }: ModalProps) => {
         style="mt-6 mb-6 bg-[#d87d4a] text-[#ffffff] w-full h-12 uppercase hover:opacity-50"
         title="back to home"
         handleClick={() => {
-          emptyCart();
+          dispatch(emptyCart());
           router.push("/");
         }}
       />

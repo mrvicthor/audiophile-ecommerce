@@ -2,9 +2,11 @@ import {
   increaseQuantity,
   decreaseQuantity,
 } from "../../features/cart/cartSlice";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../redux/hooks";
 import Image from "next/image";
 import { Product } from "../../model";
+import { convertCurrency } from "../../helpers/toUsDollar";
+import { removeLastString } from "../../helpers/removeLastString";
 
 interface CartProps {
   item: Product;
@@ -13,18 +15,12 @@ interface CartProps {
 const CartItem = ({ item }: CartProps) => {
   const dispatch = useAppDispatch();
 
-  const removeLastString = (value: string) => {
-    const strArr = value.split(" ");
-    return strArr.length > 3
-      ? `${strArr[0]} ${strArr[1]} ${strArr[2]}`
-      : `${strArr[0]}`;
-  };
-
-  const toUSDollar = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumSignificantDigits: 4,
-  });
+  // const removeLastString = (value: string) => {
+  //   const strArr = value.split(" ");
+  //   return strArr.length > 3
+  //     ? `${strArr[0]} ${strArr[1]} ${strArr[2]}`
+  //     : `${strArr[0]}`;
+  // };
 
   return (
     <div className="flex gap-2 justify-between items-center">
@@ -41,7 +37,7 @@ const CartItem = ({ item }: CartProps) => {
           {removeLastString(item.name)}
         </h4>
         <p className="text-sm font-bold text-[#000000] opacity-50">
-          {toUSDollar.format(item.price)}
+          {convertCurrency(item.price)}
         </p>
       </div>
       <div className="h-8 w-[6rem] bg-[#f1f1f1] flex justify-between items-center px-4 ">
