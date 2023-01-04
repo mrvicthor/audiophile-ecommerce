@@ -69,7 +69,7 @@ export function getStaticProps({ params }: { params: { slug: string } }) {
   const product = data.find((item) => item.slug === params.slug);
 
   return {
-    props: { product },
+    props: { product, key: params.slug },
   };
 }
 

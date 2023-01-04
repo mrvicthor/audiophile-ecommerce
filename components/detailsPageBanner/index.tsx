@@ -40,16 +40,16 @@ const DetailsPageBanner = ({ handleNotification, product }: IProps) => {
           <Image
             src={
               width <= 768
-                ? product.image.mobile
+                ? detailProduct.image.mobile
                 : width > 768 && width <= 1024
-                ? product.image.tablet
-                : product.image.desktop
+                ? detailProduct.image.tablet
+                : detailProduct.image.desktop
             }
             fill
             sizes="(max-width: 768px) 100vw,
             (max-width: 1200px) 50vw,
             33vw"
-            alt={product.name}
+            alt={detailProduct.name}
             className="object-cover rounded-md"
           />
         )}
@@ -67,10 +67,10 @@ const DetailsPageBanner = ({ handleNotification, product }: IProps) => {
           <span className="block">{strArr.slice(-1)}</span>
         </h1>
         <p className="text-left text-[#000000] opacity-50">
-          {product.description}
+          {detailProduct.description}
         </p>
         <p className="text-[1.125rem] leading-[1.5369rem] tracking-[1.29px] font-bold text-[#000000] uppercase">
-          {convertCurrency(product.price)}
+          {convertCurrency(detailProduct.price)}
         </p>
         <div className="grid grid-cols-2 gap-4 mt-[0.4375rem] lg:w-[18.5rem]">
           <div className="w-[6rem] h-[3rem]  text-[#000000] uppercase bg-[#f1f1f1] flex justify-between items-center px-4 lg:w-[7.5rem]">
@@ -95,7 +95,7 @@ const DetailsPageBanner = ({ handleNotification, product }: IProps) => {
             style="bg-[#d87d4a] h-[3rem] text-white hover:bg-[#fbaf85] uppercase lg:w-[10rem]"
             handleClick={() => {
               handleNotification();
-              dispatch(addToCart(product));
+              dispatch(addToCart(detailProduct));
             }}
           />
         </div>
