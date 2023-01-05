@@ -1,4 +1,4 @@
-import { CategoryLayout, Title } from "../../components";
+import { CategoryLayout, Title, SEO } from "../../components";
 import Image from "next/image";
 import { headphones } from "../../data";
 import { useWindowSize } from "./../../hooks/use-Window-Size";
@@ -8,6 +8,10 @@ const Headphone = () => {
 
   return (
     <section>
+      <SEO
+        title="headphones"
+        description={`Browse exceptional high quality headphones on AudioPhile`}
+      />
       <CategoryLayout title="headphones">
         <section className="px-6 mt-[4rem] md:mt-[7.5rem] lg:mt-[10rem]">
           <div className="space-y-[7.5rem] pt-16 lg:max-w-[69.364rem] lg:mx-auto category overflow-hidden">

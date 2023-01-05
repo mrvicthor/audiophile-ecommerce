@@ -7,6 +7,7 @@ import {
   Features,
   DetailsGallery,
   Suggestion,
+  SEO,
 } from "../../components";
 import { data } from "../../data";
 import { Product } from "../../model";
@@ -24,32 +25,38 @@ const DetailsPage = ({ product }: DetailsPageProps) => {
   const notify = () => toast("Item added to cart");
 
   return (
-    <Layout>
-      <ToastContainer />
-      <section className="px-6 overflow-hidden">
-        <div className="pt-4 lg:pt-[4.9375rem] lg:max-w-[69.364rem] lg:mx-auto">
-          <Button
-            title="go back"
-            handleClick={() => router.back()}
-            style="capitalize text-[0.9375rem] font-medium text-[#000000] leading-[1.5625rem] opacity-50"
-          />
-          <DetailsPageBanner product={product} handleNotification={notify} />
-          <Features
-            features={product.features}
-            featuresCont={product.featuresCont}
-            includes={product.includes}
-          />
-          <DetailsGallery product={product} />
-          <Suggestion product={product} />
+    <>
+      <SEO
+        title={product.name}
+        description={`Browse exceptional high quality ${product.name} on AudioPhile`}
+      />
+      <Layout>
+        <ToastContainer />
+        <section className="px-6 overflow-hidden">
+          <div className="pt-4 lg:pt-[4.9375rem] lg:max-w-[69.364rem] lg:mx-auto">
+            <Button
+              title="go back"
+              handleClick={() => router.back()}
+              style="capitalize text-[0.9375rem] font-medium text-[#000000] leading-[1.5625rem] opacity-50"
+            />
+            <DetailsPageBanner product={product} handleNotification={notify} />
+            <Features
+              features={product.features}
+              featuresCont={product.featuresCont}
+              includes={product.includes}
+            />
+            <DetailsGallery product={product} />
+            <Suggestion product={product} />
+          </div>
+        </section>
+        <div className="pt-[6rem]">
+          <Products />
         </div>
-      </section>
-      <div className="pt-[6rem]">
-        <Products />
-      </div>
-      <div className="mt-[7.5rem] lg:mt-[10rem]">
-        <Gallery />
-      </div>
-    </Layout>
+        <div className="mt-[7.5rem] lg:mt-[10rem]">
+          <Gallery />
+        </div>
+      </Layout>
+    </>
   );
 };
 

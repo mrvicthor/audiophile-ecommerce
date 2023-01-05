@@ -22,6 +22,7 @@ import { InputField } from "./input";
 import CartItem from "./cartItem";
 import CheckoutItem from "./checkoutList";
 import CheckoutModal from "./checkoutModal";
+import { SEO } from "./seo";
 
 export {
   Gallery,
@@ -48,4 +49,5 @@ export {
   CartItem,
   CheckoutItem,
   CheckoutModal,
+  SEO,
 };
