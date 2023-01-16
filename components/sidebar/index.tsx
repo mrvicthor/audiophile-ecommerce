@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useRouter } from "next/router";
 import { Product } from "../index";
 
 type SidebarProps = {
@@ -30,13 +29,6 @@ const Sidebar = ({ showNav }: SidebarProps) => {
       opacity: 0,
     },
   };
-
-  // const menu = [
-  //   { id: 1, title: "home", path: "/" },
-  //   { id: 2, title: "headphones", path: "/headphones" },
-  //   { id: 3, title: "speakers", path: "/speakers" },
-  //   { id: 4, title: "earphones", path: "/earphones" },
-  // ];
 
   return (
     <AnimatePresence>
@@ -82,29 +74,6 @@ const Sidebar = ({ showNav }: SidebarProps) => {
               />
             </motion.div>
           </motion.div>
-          {/* <motion.ul
-            className="lg:hidden  mobile_nav"
-            variants={variants}
-            initial="closed"
-            animate="open"
-            exit="closed"
-          >
-            {menu.map((item) => (
-              <motion.li
-                variants={itemVariants}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                key={item.id}
-                className={`${
-                  router.pathname === item.path ? "active" : ""
-                } text-xl font-semibold uppercase tracking-wider text-black hover:text-[#d87d4a] cursor-pointer my-4`}
-              >
-                <Link href={item.title === "home" ? "/" : item.path}>
-                  {item.title}
-                </Link>
-              </motion.li>
-            ))}
-          </motion.ul> */}
         </motion.div>
       )}
     </AnimatePresence>

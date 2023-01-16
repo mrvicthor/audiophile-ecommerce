@@ -50,9 +50,9 @@ const Title = ({
         className="flex flex-col gap-[1.5rem] items-center md:px-[3.635rem] lg:items-start lg:justify-center title_wrapper"
       >
         {isNew && (
-          <h2 className="text-[#d87d4a] font-normal leading-[1.2rem] text-[0.875rem] tracking-[0.625rem] text-center uppercase lg:text-left">
+          <h1 className="text-[#d87d4a] font-normal leading-[1.2rem] text-[0.875rem] tracking-[0.625rem] text-center uppercase lg:text-left">
             New Product
-          </h2>
+          </h1>
         )}
         <p
           style={{

@@ -56,7 +56,7 @@ const Header = ({ style, toggle }: HeaderProps) => {
               className="w-4 h-[15px] cursor-pointer border-[0] outline-0 z-[10000]"
               aria-controls="primary__nav"
             >
-              <span className="sr-only" aria-expanded="false">
+              <span className="sr-only" aria-expanded="false" role="menubar">
                 Menu
               </span>
               {showNav ? <FaTimes /> : <FaBars />}
@@ -120,7 +120,7 @@ const Header = ({ style, toggle }: HeaderProps) => {
               className="cursor-pointer w-5 h-[23px] border-[0] outline-0"
               onClick={toggle}
             >
-              <span className="sr-only" aria-expanded="false">
+              <span className="sr-only" aria-label="Cart" role="region">
                 Cart
               </span>
               <BsCart3 />

@@ -1,0 +1,16 @@
+// {
+//   "extends": "./tsconfig.json",
+//   "compilerOptions": {
+//     "jsx": "react-jsx"
+//   }
+// }
+
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/test",
+    "module": "commonjs",
+    "target": "esnext"
+  },
+  "include": ["./__tests__/**/*"]
+}

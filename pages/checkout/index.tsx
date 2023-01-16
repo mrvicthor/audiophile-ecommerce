@@ -91,9 +91,9 @@ const CheckoutPage = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className=" rounded-md py-6 px-6 bg-[#ffffff] lg:col-span-2">
-              <h1 className="uppercase font-bold text-2xl leading-[2.39rem] tracking-[1px] text-[#000000]">
+              <h2 className="uppercase font-bold text-2xl leading-[2.39rem] tracking-[1px] text-[#000000]">
                 checkout
-              </h1>
+              </h2>
               <p className="uppercase text-[#d87d4a] font-bold leading-[1.5625rem] tracking-[0.93px] text-[0.8125rem] mt-8">
                 billing details
               </p>
@@ -280,9 +280,9 @@ const CheckoutPage = () => {
             </div>
 
             <article className="bg-white py-6 px-6 rounded-md md:max-h-[38.25rem] lg:self-start">
-              <h4 className="mt-2 uppercase text-lg font-bold leading-[1.5369rem] tracking-[1.29px]">
+              <h3 className="mt-2 uppercase text-lg font-bold leading-[1.5369rem] tracking-[1.29px]">
                 summary
-              </h4>
+              </h3>
               <div className="mt-8 flex flex-col gap-6 overflow-y-scroll max-h-[15rem] cart__wrapper">
                 {cart.map((item) => (
                   <CheckoutItem item={item} key={item.id} />

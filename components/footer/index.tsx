@@ -68,13 +68,50 @@ const Footer = () => {
             Copyright 2022. All rights Reserved
           </p>
           <div className="flex items-center justify-center gap-6 md:items-end lg:absolute lg:top-[226px] lg:right-[1rem]">
-            <a href="#" className="h-[1.5rem] hover:text-[#d87d4a]">
+            <a
+              href="https://www.facebook.com/outtaspace1"
+              target="_blank"
+              className="h-[1.5rem] hover:text-[#d87d4a]"
+              role="link"
+              aria-label="connect with me on facebook"
+            >
+              {" "}
+              <span
+                className="sr-only"
+                aria-label="Facebook page"
+                role="region"
+              >
+                Facebook
+              </span>
               <FaFacebookSquare size={25} />
             </a>
-            <a href="#" className="h-[1.5rem] hover:text-[#d87d4a]">
+            <a
+              href="https://twitter.com/eva_skillz"
+              target="_blank"
+              className="h-[1.5rem] hover:text-[#d87d4a]"
+              role="link"
+              aria-label="connect with me on twitter"
+            >
+              {" "}
+              <span className="sr-only" aria-label="Twitter page" role="region">
+                Twitter
+              </span>
               <FaTwitter size={25} />
             </a>
-            <a href="#" className="h-[1.5rem] hover:text-[#d87d4a]">
+            <a
+              href="https://www.instagram.com/mrvic_thor/"
+              target="_blank"
+              className="h-[1.5rem] hover:text-[#d87d4a]"
+              role="link"
+              aria-label="connect with me on instagram"
+            >
+              <span
+                className="sr-only"
+                aria-label="Instagram page"
+                role="region"
+              >
+                Instagram
+              </span>
               <FaInstagram size={25} />
             </a>
           </div>

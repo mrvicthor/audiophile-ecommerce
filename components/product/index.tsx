@@ -25,9 +25,9 @@ const Product = ({ imagePath, title, style, content }: ProductProps) => {
         </div>
         <div className="image_shadow -translate-y-[50%] left-[50%] -translate-x-[50%] top-[36%]" />
         <div className="flex flex-col items-center self-end gap-4 pb-4">
-          <h3 className="uppercase font-bold tracking-wide-[1.1px] text-[#000000]">
+          <h2 className="uppercase font-bold tracking-wide-[1.1px] text-[#000000]">
             {title}
-          </h3>
+          </h2>
           <Link
             href={`/${title}`}
             className="flex items-center justify-center uppercase text-[#000] opacity-75 cursor-pointer"

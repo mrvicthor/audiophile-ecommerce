@@ -6,9 +6,9 @@ import { useAppDispatch } from "../../redux/hooks";
 import { convertCurrency } from "../../helpers/toUsDollar";
 import { addToCart } from "../../features/cart/cartSlice";
 import { Id } from "react-toastify/dist/types";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-interface IProps {
+export interface IProps {
   handleNotification: () => Id;
   product: Product;
 }
@@ -60,12 +60,12 @@ const DetailsPageBanner = ({ handleNotification, product }: IProps) => {
             new product
           </p>
         )}
-        <h1 className="uppercase text-[1.75rem] leading-[2.390rem] font-bold tracking-[1px] text-[#000000] lg:text-[2.5rem]">
+        <h2 className="uppercase text-[1.75rem] leading-[2.390rem] font-bold tracking-[1px] text-[#000000] lg:text-[2.5rem]">
           {strArr.length > 3
             ? `${strArr[0]} ${strArr[1]} ${strArr[2]}`
             : `${strArr[0]}`}{" "}
           <span className="block">{strArr.slice(-1)}</span>
-        </h1>
+        </h2>
         <p className="text-left text-[#000000] opacity-50">
           {detailProduct.description}
         </p>
