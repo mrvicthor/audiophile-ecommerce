@@ -168,7 +168,7 @@
   }
   @media (min-width: 1024px) {
     .banner {
-      background-position: center 144%;
+      background-position: center 80%;
     }
     .footer_text {
       width: 33.75rem;
