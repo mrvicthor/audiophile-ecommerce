@@ -8,8 +8,8 @@ const Banner = () => {
   const router = useRouter();
   const isInView = useInView(ref, { once: true });
   return (
-    <motion.section ref={ref} className="h-[510px] md:h-[639px] lg:h-[740px]">
-      <div className="px-6 banner bg-[url('/images/image-header.jpg')] bg-no-repeat bg-cover h-full md:bg-[url('/images/image-header-tablet.jpg')] lg:bg-[url('/images/image-hero.jpg')] py-8">
+    <motion.section ref={ref} className="h-[510px] md:h-[639px] lg:h-[45.5625rem]">
+      <div className="px-6 banner bg-[url('/images/image-header.jpg')] bg-no-repeat bg-cover h-full  md:bg-[url('/images/image-header-tablet.jpg')] lg:bg-[url('/images/image-hero.jpg')]">
         <div className="max-w-[328px]  flex flex-col items-center mx-auto pt-[7.5rem] md:pt-36 md:max-w-[379px] lg:items-start lg:max-w-[69.364rem] lg:mx-auto">
           <h1
             style={{
@@ -17,7 +17,7 @@ const Banner = () => {
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
             }}
-            className="tracking-[10px] text-lg uppercase text-white opacity-50 leading-[19px] font-[400]"
+            className="tracking-[10px] text-lg uppercase text-white opacity-50 leading-[19px] font-[400] lg:pt-8"
           >
             New product
           </h1>
