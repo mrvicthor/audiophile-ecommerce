@@ -13,7 +13,7 @@ const Product = ({ imagePath, title, style, content }: ProductProps) => {
     <div
       className={`${
         style ? style : "h-[10.3125rem]"
-      } product md:h-[10.075rem] lg:h-[12.75rem] cursor-pointer`}
+      } product md:h-[10.075rem] lg:h-[12.75rem] cursor-pointer group`}
     >
       <div
         className={`bg-[#f1f1f1] ${
@@ -33,7 +33,7 @@ const Product = ({ imagePath, title, style, content }: ProductProps) => {
             className="flex items-center justify-center uppercase text-[#000] opacity-75 cursor-pointer"
           >
             shop{" "}
-            <span className="pl-3">
+            <span className="pl-3 group-hover:animate-ping">
               <FaChevronRight color="#d87d4a" size={13} />
             </span>
           </Link>
